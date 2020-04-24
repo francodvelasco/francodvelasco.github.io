@@ -29,7 +29,7 @@ div.header {
 	font-weight: 500;
 	text-align: center;
 	margin-left: 2%;
-	border-bottom: 3px solid black;
+	border-bottom: 2px solid black;
 	padding-bottom: 5px;
 	display: inline-block;
 }
@@ -43,25 +43,83 @@ div.linkIcons {
 	display: inline-block;
 }
 div.body {
-	margin-top: 2.5%;
+	margin-top: 1.5%;
 	margin-left: 25%;
 	height: 50%;
 	width: 50%;
-	/* border: 4px solid black;*/
-}
-.clear {
-    clear: both;
 }
 .titleBar {
 	text-align: center;
-	background-color: #004D7F;
+	background-color: #002B5D;
 	font-size: 13.5px;
 	color: #feffea;
-	border: 1px solid #003C6E;
-	border-bottom-width: 0px !important;
-	border-radius: 15px 15px 0px 0px;
+	border: 2px solid #00093B;
+	border-bottom: 1px solid gray;
+	border-radius: 10px 10px 0px 0px;
 	padding-top: 3px;
 	padding-bottom: 3px;
+}
+.tabs {
+	background-color: #004D7F;
+	font-size: 0px;
+	color: #feffea;
+	overflow: hidden;
+	border-left: 2px solid #00093B;
+	border-right: 2px solid #00093B;
+}
+.tabButton {
+	height: 100%;
+	width: 33.33333333%;
+	background-color: inherit;
+	color: inherit;
+	font-size: 13.5px;
+	text-align: center;
+	border: none;
+	padding-bottom: none;
+	border-bottom: 1px solid gray;
+}
+.tabButton.active {
+	background-color: #002B5D;
+}
+.tabButton:hover {
+	background-color: orangered;
+	transition: 0.35s;
+}
+.tabContent {
+	display: none;
+	background-color: #00082A;
+}
+.bodyText {
+	font-size: 12px;
+	border-bottom: 2px solid #00093B;
+	border-left: 2px solid #00093B;
+	border-right: 2px solid #00093B;
+	font-family: Consolas,monaco,monospace;
+	padding-top: 3px;
+	padding-left: 5px;
+	padding-bottom: 15px;
+	border-radius: 0px 0px 10px 10px;
+	background-color: #00082A;
+	color: #feffea;
+}
+span.indent {
+	text-indent: 5%;
+}
+.functions {
+	color: #C69002;
+}
+.varName {
+	color: #FD8434;
+}
+.note {
+	color: #ACACAC;
+}
+.dicItem {
+	color: #DCDF68;
+	text-indent: 5%;
+}
+.sep {
+	color: #FF6262;
 }
 #name {
 	font-weight: 600 !important;
@@ -82,4 +140,13 @@ div.body {
 #github {
 	float: right;
 	margin-right: 2%;
+}
+#experienceTab {
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+}
+#footer {
+	text-align: center;
+	padding-top: 20px;
+	font-size: 12px;
 }
