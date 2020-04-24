@@ -4,13 +4,28 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title> Franco Velasco </title>
 		<link rel="stylesheet" href="websiteBio.css">
-		<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+		<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
 		<script src="https://kit.fontawesome.com/2d80a0df53.js" crossorigin="anonymous"></script>
+		<script>
+			function openTab(event, tabName) {
+  				var i, tabContent, tabButton;
+  				tabContent = document.getElementsByClassName("tabContent");
+  				for (i = 0; i < tabContent.length; i++) {
+    				tabContent[i].style.display = "none";
+  				}
+  				tabButton = document.getElementsByClassName("tabButton");
+  				for (i = 0; i < tabButton.length; i++) {
+    				tabButton[i].className = tabButton[i].className.replace(" active", "");
+  				}
+  				document.getElementById(tabName).style.display = "block";
+  				event.currentTarget.className += " active";
+			}
+		</script>
 	</head>
 	<body>
 		<div class="head">
 			<div class="linkIcons" id="twitter"> <a href="https://twitter.com/francodvelasco" target="_blank"><i class="fab fa-twitter"></i></a> </div>
-			<div class="linkIcons" id="resume"> <a href="/Users/franco/Desktop/School/Grade 12/Resume Velasco.pages"> <i class="far fa-file"></i> </a> </div>
+			<div class="linkIcons" id="resume"> <a href="https://drive.google.com/open?id=12dEub9BOdilT7Mb6r8gnkOxSue337ZuW"> <i class="far fa-file"></i> </a> </div>
 			<div class="header">
 				<div id="name"> Franco Velasco </div>
 				<div id="description"> Programmer. Wanderer. Dreamer. </div>
@@ -19,8 +34,102 @@
 			<div class="linkIcons" id="email"><a href="mailto:franco.d.velasco@gmail.com" target="_top"> <i class="far fa-envelope"></i> </a> </div>
 		</div>
 		<div class="body">
-			<div class="titleBar"> About Me </div>
-			<div class="bodyText"> </div>
+			<div class="titleBar"> About-Me.project </div>
+			<div class="tabs">
+  				<button class="tabButton" onclick="openTab(event, 'education')"> Education.code </button>
+  				<button class="tabButton" onclick="openTab(event, 'experience')" id="experienceTab"> Experience.code </button>
+  				<button class="tabButton" onclick="openTab(event, 'expertise')"> Expertise.code </button>
+			</div>
+			<div class="bodyText"> 
+				<div class="tabContent" id="education">
+					<span id="educationTitle"> 
+						<span class="functions" id="dictionary"> Dictionary </span>
+						<span class="varName"> Education </span> = new <span class="functions"> Dictionary</span>() {  <br>
+					    <span class="dicItem indent"> ["SHS", "Ateneo de Manila Senior High School"],
+					    </span>
+					    <span class="note">  // Quezon City, PH | Strand: STEM <br> </span>
+					    <span class="dicItem indent"> ["JHS", "Ateneo de Manila Junior High School"], </span>
+					    <span class="note">  // Quezon City, PH <br> </span>
+					    <span class="dicItem indent">  ["GS", "Ateneo de Manila Grade School"], </span>
+					    <span class="note">  // Quezon City, PH <br> </span>
+					   	<span class="brackets"> }; </span>
+					</span>
+					<br> <br>
+					<span id="awardTitle"> 
+						<span class="functions"> Dictionary </span>
+						<span class="varName"> Awards </span> = new <span class="functions"> Dictionary</span>() { <br>
+						<span class="sep"> :: Senior High School Awards </span> <br>
+						<span class="dicItem"> ["SHS", "Gold Medal for Academic Excellence"], </span>
+						<span class="note"> // Overall QPI: 3.75 / 4 </span> <br>
+						<span class="dicItem"> ["Grade 12", "Ateneo Freshman Merit Scholar"], </span>
+						<span class="note"> // Top 50 out of 30000+ ADMU applicants </span> <br>
+						<span class="dicItem"> ["Grade 12", "Xavier Award"], </span>
+						<span class="note"> // For my contributions in extracurricular activities </span> <br>
+						<span class="dicItem"> ["Grade 12", "First Honor Award"], </span>
+						<span class="note"> // 2nd Semester </span> <br>
+						<span class="dicItem"> ["Grade 12", "Second Honor Awa
+						<span class="dicItem"> ["Grade 11", "Third Honor Award"], </span>
+						<span class="note"> // 1st and 2nd Semester </span> <br>
+						<span class="dicItem"> ["Grade 11", "Faber Award for Leadership"], </span>
+						<span class="note"> // As Class President </span> <br>
+						<span class="dicItem"> ["Grade 11", "Hoyos Award"]; </span>
+						<span class="note"> // For STEM Council's Projects </span> <br>
+						<span class="sep"> :: Junior High School Awards </span> <br>
+						<span class="dicItem"> ["JHS", "Bronze Medal for Academic Excellence"], </span> <br>
+						<span class="dicItem"> ["Grade 10", "First Honor"], </span>
+						<span class="note"> // 1st, 2nd, 3rd Terms; Overall Grade 10 QPI: 4 / 4 </span> <br>
+						<span class="dicItem"> ["Grade 10", "Activity Award, Gold"], </span>
+						<span class="note"> // For my contributions in extracurricular activities </span> <br>
+						<span class="dicItem"> ["Grade 10", "St. Stephen&#39;s High School Robotics Competition, Gold"], </span>
+						<span class="note"> // Language used: ArduinoC </span> <br>
+						<span class="dicItem"> ["Grade 9", "First Honor"], </span>
+						<span class="note"> // 1st, 2nd, 3rd Terms; Overall Grade 9 QPI: 3.94 / 4 </span> <br>
+						<span class="dicItem"> ["Grade 9", "World Scholars' Cup Awards"], </span>
+						<span class="note"> // Scholar's Bowl, Writing, Challenge, Senior Honor Medal Overall, Qualified to Regional Round </span> <br>
+						}
+					</span>
+				</div>
+				<div class="tabContent" id="experience">
+					<span class="functions"> List </span>
+					<span class="varName"> Grade-12-Experiences </span> = new <span class="functions"> List</span>() { <br>
+					<span class="dicItem"> "STEM Council Academics Head", </span> <br>
+					<span class="note"> /* In charge of overseeing the creation reviewers for the subjects in STEM 11 and 12. Spearheaded implementation of Google Classroom within the strand (in coordination with the Academics Office and the IT Department) to facilitate distribution of reviewers, announcements, STEM events, and other strand matters. */ </span> <br> <br>
+					 <span class="dicItem"> "ASHS Commission on Elections Programs Head", </span> <br>
+					 <span class="note"> /* In charge of organizing debates for candidates in addition to other COMELEC events. Helped draft legal arguments for COMELEC, and helped in revising our COMELEC code to remove any legal ambiguities while introducing reforms that would make elections more efficient and democratic (like Preferential Voting). */</span> <br>
+					 } <br> <br>
+					 <span class="functions"> List </span>
+					<span class="varName"> Grade-11-Experiences </span> = new <span class="functions"> List</span>() { <br>
+					<span class="dicItem"> "Class President, 11 - Perez", </span> <br>
+					<span class="note"> /* Oversaw numerous class projects, including a fundraising concert entitled “Kundiman” which raised over PHP200,000, organizing a successful Christmas party and Graduation for the Grade 5/6 pupils we tutored over the year through TD and won the overall championship in Tug-of-War during Sportsfest 2018, led tutoring efforts in the 4 Math subjects. */ </span> <br> <br>
+					<span class="dicItem"> "Member, Finance Department, Kundiman Concert", </span> <br>
+					<span class="note"> /* Part of the department tasked to find sponsors and manage finances for our concert. This involved going on-location to numerous companies to negotiate a sponsorship, emailing and calling PR departments of companies to strike similar deals, and other similar tasks that was assigned. In addition to that, I was tasked to coordinate with our Accounting division to create the ordering system and interface for members of the public who wished to purchase/pre-order tickets, managing hundreds of ticket orders efficiently. */ </span> <br> 
+					} <br> <br>
+					<span class="note"> //The rest of my Work Experiences can be found in my CV! </span>
+				</div>
+				<div class="tabContent" id="expertise">
+					<span id="Languages"> 
+						<span class="functions"> List </span>
+						<span class="varName"> Languages</span> = new <span class="functions"> List</span> () {
+						<span class="dicItem"> "English", "Filipino" </span>}
+					</span>
+					<br> <br>
+					<span id="programmingLang"> 
+						<span class="functions"> List </span>
+						<span class="varName"> Programming-Languages</span> = new <span class="functions"> List</span> () { <br>
+						<span class="dicItem"> "Python", "C#", "HTML / CSS", "Swift" </span>
+						<span class="note"> //Swift Learner </span>
+						<br>}
+					</span> <br> <br>
+					<span id="hobbies">
+						<span class="functions"> List </span>
+						<span class="varName"> Hobbies-And-Interests </span> = new <span class="functions"> List</span> () { <br>
+						<span class="dicItem"> "Technology", "Mathematics", "Politics", "Psephology" <br> }
+				</div>
+			</div>
+			<div id="footer"> 
+				Click through the code tabs! <br>
+				&copy; Franco Velasco, 2020
+			</div>
 		</div>
 	</body>
 </html>
