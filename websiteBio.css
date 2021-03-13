@@ -1,152 +1,145 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
-
 body {
 	background-color: #feffea;
 	background-image: url("https://transparenttextures.com/patterns/axiom-pattern.png");
-	font-family: 'Inter', sans-serif;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
 	color: #004D7F;
+	margin: 0;
+}
+#name { 
+	margin: 0;
 }
 a {
 	text-decoration: none;
-	color: #004D7F;
+	color: white;
 	transition: 0.35s;
+	font-size: 40px;
 }
 a:hover {
 	color: orangered;
 }
-div.head {
-	display: table;
-	width: 70%;
-	height: 20%;
-	margin-left: 15%;
-	margin-right: 15%;
-	position: -webkit-relative;
-	text-align: center;
-}
-div.header {
-	width: 35%;
-	font-weight: 500;
-	text-align: center;
-	margin-left: 2%;
-	border-bottom: 2px solid black;
+h3 { 
+	margin: 0;
 	padding-bottom: 5px;
+}
+.item { 
 	display: inline-block;
+	vertical-align: middle;
 }
-div.linkIcons {
-	font-size: 40px;
-	display: table-cell;
-	position: -webkit-absolute;
-	margin-left: 5%;
-	margin-right: 5%;
-	float: left;
-	display: inline-block;
+
+#socmed-icons { 
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+	
 }
-div.body {
-	margin-top: 1.5%;
-	margin-left: 25%;
-	height: 50%;
-	width: 50%;
+.experience-title { 
+	font-weight: 500;
 }
-.titleBar {
-	text-align: center;
+.bottom-padding { 
+	padding-bottom: 5px;
+}
+.experience-body { 
+	text-align: justify;
+	text-justify: inter-word;
+}
+header { 
+	background-image: linear-gradient(to right, #004D7F, #002B5D);
+	color: white;
+}
+
+div.head {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 60%;
+	max-width: 1250px;
+	margin: auto;
+	padding: 10px;
+	vertical-align: middle;
+}
+.body { 
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top: 0px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.info {
+	width: 60%;
+	max-width: 1250px;
+	margin-top: 0;
+	border: 1px solid #002B5D;
+}
+.collapse { 
+	margin: 0;
+	width: 100%;
 	background-color: #002B5D;
-	font-size: 13.5px;
-	color: #feffea;
-	border: 2px solid #00093B;
-	border-bottom: 1px solid gray;
-	border-radius: 10px 10px 0px 0px;
-	padding-top: 3px;
-	padding-bottom: 3px;
-}
-.tabs {
-	background-color: #004D7F;
-	font-size: 0px;
-	color: #feffea;
-	overflow: hidden;
-	border-left: 2px solid #00093B;
-	border-right: 2px solid #00093B;
-}
-.tabButton {
-	height: 100%;
-	width: 33.33333333%;
-	background-color: inherit;
-	color: inherit;
-	font-size: 13.5px;
-	text-align: center;
+	color: white;
 	border: none;
-	padding-bottom: none;
-	border-bottom: 1px solid gray;
-}
-.tabButton.active {
-	background-color: #002B5D;
-}
-.tabButton:hover {
-	background-color: orangered;
+	outline: none;
+	padding: 10px;
+	text-align: left;
+	font-size: 25px;
+	font-weight: 500;
 	transition: 0.35s;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
 }
-.tabContent {
+.collapse:hover { 
+	background-color: orangered;
+}
+.body-info { 
 	display: none;
-	background-color: #00082A;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 15px;
 }
-.bodyText {
-	font-size: 12px;
-	border-bottom: 2px solid #00093B;
-	border-left: 2px solid #00093B;
-	border-right: 2px solid #00093B;
-	font-family: Consolas,monaco,monospace;
-	padding-top: 3px;
-	padding-left: 5px;
-	padding-bottom: 15px;
-	border-radius: 0px 0px 10px 10px;
-	background-color: #00082A;
-	color: #feffea;
+.project-info { 
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	overflow-wrap: break-word;
 }
-span.indent {
-	text-indent: 5%;
-}
-.functions {
-	color: #C69002;
-}
-.varName {
-	color: #FD8434;
-}
-.note {
-	color: #ACACAC;
-}
-.dicItem {
-	color: #DCDF68;
-	text-indent: 5%;
-}
-.sep {
-	color: #FF6262;
+.logo { 
+	margin-right: 15px;
+	width: 100px;
+	height: 100px;
+	object-fit: contain;
 }
 #name {
 	font-weight: 600 !important;
-	text-shadow: 1.5px 1.5px black !important;
+	text-shadow: 1.5px 1.5px gray !important;
 	font-size: 40px;
 }
-#twitter {
-	margin-left: 2%
+#github { 
+	margin-left: 30px;
 }
-#resume {
-	float: left;
-	margin-left: 2%;
+.not-last { 
+	margin-bottom: 10px;
 }
-#email {
-	float: right;
-	margin-right: 2%;
+.title { 
+	margin: 0;
+	font-weight: 600;
 }
-#github {
-	float: right;
-	margin-right: 2%;
+.body-details { 
+	width: 50%;
 }
-#experienceTab {
-	border-left: 1px solid gray;
-	border-right: 1px solid gray;
+.subrow { 
+	margin-top: 15px;
 }
-#footer {
-	text-align: center;
-	padding-top: 20px;
-	font-size: 12px;
+@media screen and (max-width: 600px) {
+	.body-details { 
+		width: 100%;
+	}
+	.subrow { 
+		margin-top: 0;
+	}
 }
