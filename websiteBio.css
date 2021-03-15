@@ -34,7 +34,6 @@ h3 {
 	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: space-around;
-	
 }
 .experience-title { 
 	font-weight: 500;
@@ -139,9 +138,17 @@ div.head {
 .subrow { 
 	margin-top: 15px;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 550px) {
 	div.head { 
 		width: 90%;
+	}
+	.item { 
+		text-align: center;
+	}
+	#socmed-icons { 
+		text-align: center;
+		justify-content: center;
+		margin: 0 auto;
 	}
 	.info { 
 		width: 90%;
@@ -151,5 +158,15 @@ div.head {
 	}
 	.subrow { 
 		margin-top: 0;
+	}
+	.project-info { 
+		flex-wrap: wrap;
+	}
+	.logo {
+		margin: 0 auto;
+		text-align: center;
+	}
+	h3 { 
+		text-align: center;
 	}
 }
