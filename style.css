@@ -244,13 +244,11 @@ section:last-of-type {
 }
 
 .experience-container:nth-of-type(2n) { 
-    text-align: justify;
     flex-flow: row-reverse nowrap;
 }
 
 .experience-container:nth-of-type(2n) > div { 
     direction: rtl;
-    text-align: justify;
     margin-right: 1em;
 }
 
