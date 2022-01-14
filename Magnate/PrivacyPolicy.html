@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title> Magnate Privacy Policy </title>
     <link rel='shortcut icon' type='image/x-icon' href='MagnateLogo.ico' />
@@ -12,6 +12,17 @@
     background-color: #feffea;
     margin: auto;
     text-align: justify;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #303030;
+        color: white;
+      }
+
+      a:visited { 
+        color: orangered;
+      }
     }
 
     img {
@@ -50,6 +61,7 @@
         <img id="logo" src="MagnateLogo.png" alt="MagnateLogo">
         </a>
         <h1> Magnate Privacy Policy </h1>
+        <i> Last Updated: January 17, 2022 </i>
       </div>
     </header>
     <div class="body">
@@ -61,14 +73,17 @@
           does work offline, allowing you to use Magnate privately wherever you may go.
         </p>
         <p> 
-          All features and views that process your data (such as those presented in the Statistics and Projection) are processed entirely on-device. None of 
-          your data gets processed on a remote server.
+          All features and views that process your data (such as those presented in the Statistics and Projection) are processed entirely on-device. With a few exceptions outlined below, none of your data gets processed on any server.
         </p>
         <p>
           Features that require communication with the Internet (such as the Currency Conversion and Placemark features) only send the information required
           to process your request. For instance, the Currency Conversion feature only sends the local currency your device and the foreign currency you have
           selected to the server processing currency conversion requests -- nothing else. No data gets sent over the Internet or to any server without your 
           intervention first; the currencies will not be sent to the conversion API without you selecting a custom currency, for example.
+        </p>
+        <p>
+          The Cloud Syncing feature utilizes iCloud to store your data, which means that if you choose to sync your data as such, it will get stored on Apple's servers, bound by their own privacy policy. 
+          Apple does say that all data (which includes entries, goals, tags, profiles, and more from Magnate) stored on their servers are encrypted end-to-end and is locked by multiple layers of security measures -- however, the Cloud Syncing feature is opt-in, meaning that if you do not wish to have your data stored in Apple's servers, no work is required on your end.
         </p>
         <p>
           Magnate allows you to tag entries with the current location of the device. Magnate will only track your location at that specific instance, and will
@@ -80,7 +95,7 @@
           You can delete these logs at anytime within the Settings view.
         </p>
         <p>
-          As the Location and Placemark features utilize Apple Maps, by using these features, you agree to be bound by <a href="https://www.apple.com/legal/privacy/en-ww/"> Apple's Privacy Policy</a> (though by using your iOS device,
+          As the Location and Placemark features utilize Apple Maps, by using these features, you (obviously) agree to be bound by <a href="https://www.apple.com/legal/privacy/en-ww/"> Apple's Privacy Policy</a> (though by using your iOS device,
           you agree to abide and follow those terms.)
         </p>
       </div>
