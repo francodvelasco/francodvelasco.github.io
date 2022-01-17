@@ -365,6 +365,10 @@ footer > div {
         padding: 1em;
     }
 
+    .start img { 
+        margin-right: 0;
+    }
+
     p.link { 
         margin: 0;
         padding: 0.5em;
