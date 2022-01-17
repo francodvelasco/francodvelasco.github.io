@@ -31,6 +31,7 @@ h3 {
 
 a { 
     text-decoration: none;
+    color: white;
 }
 
 a:visited { 
@@ -475,34 +476,4 @@ footer > div {
         margin: 0;
         padding: 0 auto;
     }
-
-    /*.link-container { 
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 1em;
-        row-gap: 0.5em;
-        justify-content: center;
-        justify-items: center;
-    }
-
-    .footer-link { 
-        width: 100%;
-        margin: 0;
-    }
-
-    .link-container:nth-of-type(1) { 
-        grid-column: 1; grid-row: 1;
-    }
-    .link-container:nth-of-type(2) { 
-        grid-column: 2; grid-row: 1; width: 100%
-    }
-    .link-container:nth-of-type(3) { 
-        grid-column: 1; grid-row: 2; width: 100%
-    }
-    .link-container:nth-of-type(4) { 
-        grid-column: 2; grid-row: 2; width: 100%
-    }
-    .link-container:nth-of-type(5) { 
-        grid-column: 3; grid-row: 1; width: 100%
-    }*/
 }
