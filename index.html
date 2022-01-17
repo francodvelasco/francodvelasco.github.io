@@ -6,7 +6,8 @@
         <meta name="theme-color" content="#004D7F">
         <link rel="prefetch" href="https://kit.fontawesome.com/2d80a0df53.js">
         <script src="https://kit.fontawesome.com/2d80a0df53.js" crossorigin="anonymous"></script>
-        <link rel="icon" href="favicon.001.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="icon" href="favicon.ico">
         <script src="headerScript.js"></script>
         <title> Franco Velasco </title>
         <link rel="stylesheet" href="style.css">
@@ -16,69 +17,92 @@
             <div>
                 <div class="nav-bar-title">
                     <h1> Franco Velasco </h1>
-                    <p> CS Student, Human Wannabe </p>
                 </div>
                 <div class="links">
-                    <p class="link"><a href="#about"> About </a> </p>
-                    <p class="link"><a href="#projects"> Projects </a> </p>
-                    <p class="link"><a href="#experience"> Experience </a> </p>
-                    <p class="link"><a href="#skills"> Skills </a> </p>
+                    <p class="hover-underline-animation"><a href="#projects"> 🛠️ Projects </a> </p>
+                    <p class="hover-underline-animation"><a href="#experience">  👨🏽‍💻 Experience </a> </p>
+                    <p class="hover-underline-animation"><a href="#skills"> 🎓 Skills </a> </p>
                 </div>
-                <input class="mobile-nav-bar-checkbox" id="hamburger-checkbox" type="checkbox">
+                <input class="mobile-nav-bar-checkbox" id="hamburger-checkbox"type="checkbox">
                 <label class="mobile-nav-bar-checkbox" for="hamburger-checkbox"> Show Website Parts </label>
                 <div class="mobile-nav-bar-hamburger">
                     <i class="fas fa-bars"></i>
                 </div>
                 <div class="mobile-nav-bar">
-                    <a href="#about-link"> <p class="link">About Me </p> </a>
                     <a href="#projects-link"><p class="link"> Projects </p> </a>
-                    <a href="#experience-link"><p class="link"> Experience </p> </a>
+                    <a href="#experience"><p class="link"> Experience </p> </a>
                     <a href="#skills-link"><p class="link"> Skills </p> </a>
                 </div>
             </div>
         </header>
         <section class="start">
-            <div>
-                <img src="Animoji.PNG" alt="Animoji Icon of Me!">
+            <div style="padding:1em">
+                <img src="Images/Animoji.PNG" alt="Animoji Icon of Me!">
                 <div>
-                    <h1>Hey! I'm Franco.</h1>
-                    <p>CS Student, iOS Developer, Software Engineer Wannabe.</p>
+                    <h1>🙋🏽‍♂️ Hey! I'm Franco.</h1>
+                    <div style="padding-bottom: 1em">
+                        CS Student at Ateneo de Manila. Developer of Magnate.
+                    </div>
+
+                    <div class="link-container">
+                        <a href="https://twitter.com/_Francodes" target="_new" aria-label="Developer Twitter Account">
+                            <div class="link footer-link" style="background-color: #1DA1F2;">
+                                    <i class="fab fa-twitter">
+                                    </i>
+                            </div>
+                        </a>
+                        <a href="https://apps.apple.com/us/developer/velasco-franco-manuel/id1555724054" target="_new" aria-label="App Store Developer Profile">
+                            <div class="link footer-link" style="background-color: #51a0d5;">
+                                    <i class="fab fa-app-store-ios">
+                                    </i>
+                                    
+                            </div>
+                        </a>
+                        <a href="mailto:franco.d.velasco@gmail.com" target="_new" aria-label="Email">
+                            <div class="link footer-link" style="background-color: #DB4437;">
+                                    <i class="far fa-envelope">
+                                    </i>
+                            </div>
+                        </a>
+                        <a href="https://github.com/francodvelasco" target="_new" aria-label="Github">
+                            <div class="link footer-link" style="background-color: #171515;">
+                                <i class="fab fa-github">
+                                </i>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/francodvelasco/" target="_new" aria-label="LinkedIn">
+                            <div class="link footer-link" style="background-color: #0072b1;">
+                                <i class="fab fa-linkedin">
+                                </i>
+                            </div>
+                        </a>
+                        <a href="Files/Franco Velasco Resume.pdf" target="_new" aria-label="My Résumé">
+                            <div class="link footer-link" style="background-color: #278036;">
+                                <i class="far fa-file">
+                                </i>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="info" id="about">
-            <h1 id="about-link"> About </h1>
-            <div>
-                <p> Hey! I'm Franco Velasco, a Computer Science student in Ateneo de Manila, a university in the Philippines. I have a keen interest in all things technology, and I'm always excited to learn about and help build the next big thing! </p>
-                <p> My interest in technology started when I got my very first iPod touch back when iOS didn't even support home screen wallpapers, yet I was incredibly intrigued by the power contained within. Since then, I've always been interested in software, and how it's developed!</p>
-            </div>
-            <div>
-                <p> Because of my experience with my iPod Touch, I'm mainly interested in mobile software development and all the possibility that platform has! Beyond that, I'm also interested in Web Development, Data Science, and whatever field in tech holds potential to make life a little bit better for all of us.</p>
-                <p> Beyond mindlessly coding in front of a screen for a few hours, I love to cook and catch up on some of my favorite things to watch over on YouTube and Netflix. </p>
-            </div>
-        </section>
         <section class="info" id="projects">
+            <h1>🛠️ Projects </h1>
             <div class="project-container" id="projects-link">
-                <picture>
-                    <source srcset="MagnateLogo.png" media="screen and (max-width: 768px)">
-                    <img src="MagnateScreenshot.png" alt="Magnate">
-                </picture>
+                <img src="MagnateLogo.png" alt="Magnate">
                 <div>
                     <h3> Magnate </h3>
                     <p> August 2020 - Present | Swift, SwiftUI, UIKit </p>
                     <p>
-A Budget Management app designed with the simplicity and power of iOS. 
+A Budget Management app designed with and for the simplicity and power of iOS. 
 Features include tag and profile logging, notes, picture and location support in entries, statistics and forecasting, goals, CSV and calendar export, widgets, notifications and more.
-Hit #1 in the Top Paid Finance Apps in the Philippines, #20 in the USA.
+Hit #1 in the Top Paid Finance Apps in the Philippines, #20 in the USA. In use in over 50 countries with a 5.0 rating.
                     </p>
-                    <p class="link"><a href="http://francodvelasco.github.io/Magnate/app"> Get it for free on the iOS App Store. ↗  </a> </p>
+                    <p><a href="http://francovelasco.me/Magnate/app" class="hover-underline-animation"> Get it for free on the iOS App Store. ↗  </a> </p>
                 </div>
             </div>
             <div class="project-container">
-                <picture>
-                    <source srcset="SimulVac.png" media="screen and (max-width: 768px)">
-                    <img src="SimulVacScreen.JPEG" alt="SimulVac Screen">
-                </picture>
+                <img src="Images/SimulVac.png" alt="SimulVac Screen">
                 <div>
                     <h3> SimulVac </h3>
                     <p> April 2021 | Swift, SwiftUI, Playgrounds </p>
@@ -86,14 +110,11 @@ Hit #1 in the Top Paid Finance Apps in the Philippines, #20 in the USA.
 A simulator that lets the user see how the COVID-19 pandemic might play out in a population given differing vaccination rates, and differing COVID-19 vaccine brands (spoiler: deaths drop by over 90%, regardless of brand).
 Winning entry for the WWDC 2021 Apple Swift Student Challenge.
                     </p>
-                    <p class="link"><a href="https://github.com/francodvelasco/SimulVac"> See the source code on GitHub. ↗  </a> </p>
+                    <p><a href="https://github.com/francodvelasco/SimulVac" class="hover-underline-animation"> See the source code on GitHub. ↗  </a> </p>
                 </div>
             </div>
             <div class="project-container">
-                <picture>
-                    <source srcset="CalamityChat.jpg" media="screen and (max-width: 768px)">
-                    <img src="CalamityChatScreen.png" alt="Calamity Chat Screen">
-                </picture>
+                <img src="Images/CalamityChat.jpg" alt="Calamity Chat Screen">
                 <div>
                     <h3> CalamityChat </h3>
                     <p> April 2021 | Dart, Flutter </p>
@@ -103,29 +124,13 @@ Winning entry for the WWDC 2021 Apple Swift Student Challenge.
                     </p>
                 </div>
             </div>
-            <div class="project-container">
-                <picture>
-                    <source srcset="TakBlue.JPEG" media="screen and (max-width: 768px)">
-                    <img src="TakBlueScreen.png" alt="TakBlue Screen">
-                </picture>
-                <div>
-                    <h3> TakBlue </h3>
-                    <p> February - May 2021 | HTML, CSS, JavaScript </p>
-                    <p>
-                        Developed the JS for TakBlue, a web app that lets the user input class listings from AISIS (Ateneo's Student Information System), and determine how much walking time is needed to go to their respective classes.
-                        Developed for CompSAt's Learn-to-Dev 2021.
-                    </p>
-                    <p class="link"><a href="https://github.com/dnamme/takblue"> See the source code on GitHub. ↗  </a> </p>
-                </div>
-            </div>
-            <h1> Projects </h1>
         </section>
         <section class="info" id="experience">
-            <h1> Experience </h1>
+            <h1> 👨🏽‍💻 Experience </h1>
             <div class="experience-container" id="experience-link">
-                <img src="CompSAtLogo.png" alt="CompSAt Logo">
+                <img src="Images/CompSAtLogo.png" alt="CompSAt Logo">
                 <div> 
-                    <h3> Vice President for Development and Training, Computer Society of Ateneo </h3>
+                    <h3> Vice President for Development and Training, Computer Society of the Ateneo </h3>
                     <p> July 2021 - Present </p>
                     <p>
                         Focuses on honing the software development and programming skills of CompSAt members.
@@ -136,7 +141,7 @@ Winning entry for the WWDC 2021 Apple Swift Student Challenge.
                 </div>
             </div>
             <div class="experience-container">
-                <img src="Tayo.jpg" alt="OrSem 2021: Tayo Logo">
+                <img src="Images/Tayo.jpg" alt="OrSem 2021: Tayo Logo">
                 <div>
                     <h3> Website Head, OrSem 2021: Tayo </h3>
                     <p> June - August 2021 </p>
@@ -148,18 +153,7 @@ Winning entry for the WWDC 2021 Apple Swift Student Challenge.
                 </div>
             </div>
             <div class="experience-container">
-                <img src="SOSESanggu.png" alt="School of Science and Engineering Sanggunian Logo">
-                <div>
-                    <h3> General Assembly Head, SOSE Sanggunian </h3>
-                    <p> September 2020 - Present </p>
-                    <p> Led the team that has written and reviewed over 15 resolutions and bills passed by the Sanggunian Central Assembly (the Legislature of Ateneo's Student Government).
-                        Provided legal advice to Central Sanggunian and SOSE Sanggunian.
-                        Designed the Internal Processes used by the Division to aid in its work.
-                         </p>
-                </div>
-            </div>
-            <div class="experience-container">
-                <img src="COMELEC.jpg" alt="Ateneo Senior High School Commission on Elections Logo">
+                <img src="Images/COMELEC.jpg" alt="Ateneo Senior High School Commission on Elections Logo">
                 <div>
                     <h3> Programs Head, ASHS Commission on Elections </h3>
                     <p> July 2019 - April 2020 </p>
@@ -170,7 +164,7 @@ Winning entry for the WWDC 2021 Apple Swift Student Challenge.
                 </div>
             </div>
             <div class="experience-container">
-                <img src="SangguSHS.png" alt="Ateneo Senior High School Sanggunian Logo">
+                <img src="Images/SangguSHS.png" alt="Ateneo Senior High School Sanggunian Logo">
                 <div>
                     <h3> Class President </h3>
                     <p> August 2018 - April 2019 </p>
@@ -183,85 +177,89 @@ Winning entry for the WWDC 2021 Apple Swift Student Challenge.
                 </div>
             </div>
         </section>
-        <section class="info" id="skills">
-            <div class="skills-container" id="skills-link">
-                <h3> Undegraduate </h3>
-                <p> Ateneo de Manila University </p>
-                <p> BS Computer Science, Graduating in 2024 </p>
-                <p> Ateneo Freshman Merit Scholar </p>
-                <p> Current Grade: 3.91 / 4.00 </p>
-            </div>
-            <div class="skills-container">
-                <h3> Senior High School </h3>
-                <p> Ateneo de Manila Senior High School </p>
-                <p> STEM Strand, Batch 2020 </p>
-                <p> First Honor Graduate </p>
-                <p> Current Grade: 3.75 / 4.00 </p>
-            </div>
-            <div class="skills-container">
-                <h3> Programming & Markup Languages </h3>
-                <p> Swift, Python, Java, C# </p>
-                <p> HTML, CSS </p>
-                <p> JavaScript, Dart, Kotlin </p>
-            </div>
-            <div class="skills-container">
-                <h3> Frameworks & More </h3>
-                <p> SwiftUI, UIKit </p>
-                <p> Git, Bash </p>
-                <p> Xcode </p>
-            </div>
-            <h1> Education & Skills </h1>
-        </section>
-        <footer>
-            <div>
-                <h2 style="margin-top: 0;"> Let's Collaborate! </h2>
-                <div class="footer-link-container">
-                    <div class="link footer-link">
-                        <a href="https://twitter.com/francodvelasco" target="_new">
-                            <div>
-                                <i class="fab fa-twitter">
-                                    <span> Personal Twitter ↗ </span>
-                                </i>
-                            </div>
-                        </a>
+        <section class="info">
+            <h1> 🎓 Education & Skills </h1>
+            <div id="skills">
+                <div class="skills-row">
+                    <div class="skills-container" id="skills-1">
+                        <h3> Undergraduate </h3>
+                        <p> Ateneo de Manila University </p>
+                        <p> BS Computer Science, Graduating in 2024 </p>
+                        <p> Ateneo Freshman Merit Scholar </p>
+                        <p> Current Grade: 3.91 / 4.00 </p>
                     </div>
-                    <div class="link footer-link">
-                        <a href="https://apps.apple.com/us/developer/velasco-franco-manuel/id1555724054" target="_new">
-                            <i class="fab fa-app-store-ios">
-                                <span> App Store Developer Profile ↗ </span>
-                            </i>
-                        </a>
-                    </div>
-                    <div class="link footer-link">
-                        <a href="mailto:franco.d.velasco@gmail.com" target="_new">
-                            <i class="far fa-envelope">
-                                <span> Email ↗ </span>
-                            </i>
-                        </a>
-                    </div>
-                    <div class="link footer-link">
-                        <a href="https://github.com/francodvelasco" target="_new">
-                            <span>
-                            <i class="fab fa-github">
-                                <span> GitHub ↗ </span>
-                            </i>
-                        </a>
-                    </div>
-                    <div class="link footer-link">
-                        <a href="https://www.linkedin.com/in/francodvelasco/" target="_new">
-                            <i class="fab fa-linkedin">
-                                <span> LinkedIn ↗ </span>
-                            </i>
-                        </a>
-                    </div>
-                    <div class="link footer-link">
-                        <a href="https://twitter.com/_Francodes" target="_new">
-                            <i class="fab fa-twitter">
-                                <span> Developer Twitter ↗ </span>
-                            </i>
-                        </a>
+                    <div class="skills-container" id="skills-2">
+                        <h3> Senior High School </h3>
+                        <p> Ateneo de Manila Senior High School </p>
+                        <p> STEM Strand, Batch 2020 </p>
+                        <p> First Honor Graduate </p>
+                        <p> Final Grade: 3.75 / 4.00 </p>
                     </div>
                 </div>
+                <div class="skills-row">
+                    <div class="skills-container" id="skills-3">
+                        <h3> Programming & Markup Languages </h3>
+                        <p> Swift, Python, Java, C# </p>
+                        <p> HTML, CSS </p>
+                        <p> JavaScript, Dart, Kotlin </p>
+                    </div>
+                    <div class="skills-container" id="skills-4">
+                        <h3> Frameworks & More </h3>
+                        <p> SwiftUI, UIKit </p>
+                        <p> Git, Bash </p>
+                        <p> Xcode </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script type="text/javascript">
+            $(document).ready(function() { 
+                //handle the scaling and movement of the skill containers upon hover
+                $("#skills-1").hover(function() {
+                    $("#skills-2").css('transform', 'translateX(3em)');
+                    $("#skills-3").css('transform', 'translateY(1em)');
+                    $("#skills-4").css('transform', 'translate(3em, 1em)');
+                }, function() { 
+                    $("#skills-2").css('transform', 'translate(0)');
+                    $("#skills-3").css('transform', 'translate(0)');
+                    $("#skills-4").css('transform', 'translate(0)');
+                });
+
+                $("#skills-2").hover(function() { 
+                    $("#skills-1").css('transform', 'translateX(-3em)');
+                    $("#skills-3").css('transform', 'translate(-3em, 1em)');
+                    $("#skills-4").css('transform', 'translateY(1em)');
+                }, function() { 
+                    $("#skills-1").css('transform', 'translate(0)');
+                    $("#skills-3").css('transform', 'translate(0)');
+                    $("#skills-4").css('transform', 'translate(0)');
+                });
+
+                $("#skills-3").hover(function() { 
+                    $("#skills-1").css('transform', 'translateY(-1em)');
+                    $("#skills-2").css('transform', 'translate(3em, -1em)');
+                    $("#skills-4").css('transform', 'translateX(3em)');
+                }, function() { 
+                    $("#skills-1").css('transform', 'translate(0)');
+                    $("#skills-2").css('transform', 'translate(0)');
+                    $("#skills-4").css('transform', 'translate(0)');
+                });
+
+                $("#skills-4").hover(function() { 
+                    $("#skills-1").css('transform', 'translate(-3em, -1em)');
+                    $("#skills-2").css('transform', 'translateY(-1em)');
+                    $("#skills-3").css('transform', 'translateX(-3em');
+                }, function() { 
+                    $("#skills-1").css('transform', 'translate(0)');
+                    $("#skills-2").css('transform', 'translate(0)');
+                    $("#skills-3").css('transform', 'translate(0)');
+                });
+            });
+        </script>
+        <footer>
+            <div>
+                <p style="margin-top: 0;"> Made (with <a href="https://en.wikipedia.org/wiki/Computer_programming" aria-label="Computer Programming Magic" class="hover-underline-animation">Magic</a>) by Franco Velasco. 
+                <a href="" class="hover-underline-animation" aria-label="Website HTML Repository"> See the code on GitHub </a> (or in Inspect Element). </p>
             </div>
         </footer>
     </body>
