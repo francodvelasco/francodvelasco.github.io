@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Gusto | Privacy Policy </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="apple-itunes-app" content="app-id=myAppStoreID">
+        <meta charset="UTF-8">
+        <style>
+            :root { 
+                --base-color: #F2F2F7;
+                --base-shadow: #1c1c1e52;
+                --text-color: black;
+                --content-width: 60%;
+            }
+
+            @media (prefers-color-scheme: dark) { 
+                :root { 
+                    --base-color: #1c1c1e;
+                    --base-shadow: #ffffff52;
+                    --text-color: white;
+                }
+            }
+
+            @media only screen and (max-width: 768px) { 
+                :root { 
+                    --content-width: 80%;
+                }
+
+                header, #footer-container { 
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                header img, footer img { 
+                    margin-right: 0 !important;
+                }
+            }
+
+            body { 
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                background-color: var(--base-color);
+                color: var(--text-color);
+                margin: 0 auto;
+                text-align: justify;
+                font-size: large;
+            }
+
+            header, #footer-container { 
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 4em;
+            }
+
+            header img, footer img { 
+                width: 192px;
+                height: 192px;
+                border-radius: 16px;
+                box-shadow: 0px 8px 16px var(--base-shadow);
+                margin-right: 2em;
+            }
+
+            h1, h2 { 
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            p { 
+                padding-top: 0;
+                margin-top: 0;
+            }
+
+            br { 
+                line-height: 2em;
+            }
+
+            a, a:visited { 
+                color: inherit;
+            }
+
+            .point-container { 
+                width: var(--content-width);
+                max-width: 1000px;
+                margin-bottom: 2em;
+                margin: auto;
+            }
+
+            #tldr, footer { 
+                background-color: #1E4893;
+                padding-top: 2em;
+                padding-bottom: 2em;
+                color: white;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: auto;
+            }
+
+            #tldr-container { 
+                text-align: justify;
+                margin: auto;
+                width: var(--content-width);
+                max-width: 1000px;
+            }
+
+            #tldr ul { 
+                margin-left: 0;
+                padding-left: 1.1em;
+            }
+
+            footer { 
+                margin-top: 4em;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <img src="Gusto Logo Light.png" alt="Gusto's app logo">
+            <div>
+                <h1> Gusto Privacy Policy </h1>
+                <p> Last Updated: October 21, 2022 </p>
+            </div>
+        </header>
+        <div class="point-container" id="tldr">
+            <div id="tldr-container">
+                <h2> TL;DR </h2>
+                <ul>
+                    <li> Gusto keeps your data secure. </li>
+                    <li> Gusto uses Firebase as its back-end, whose Privacy Policy <a href="https://firebase.google.com/support/privacy" >can be found here</a>. </li>
+                    <li> Gusto <b>does not</b> run ads. </li>
+                    <li> Gusto <b>does not</b> track you or your usage. </li>
+                    <li> Gusto <b>does not</b> analyze your data or your usage. </li>
+                    <li> Gusto <b>does not</b> sell or rent your data to third parties. </li>
+                </ul>
+                <p> Want the full legal-ese? Read ahead! </p>
+            </div>
+        </div>
+        <div class="point-container">
+            <h2> Introduction </h2>
+            <p>
+                Gusto was designed from the ground-up to take your privacy very seriously. Both the app and its developer keep all of your information provided secure, and will never sell or rent your data to third parties; this is of prime importance given that you are showing your preferences on certain items in Gusto.
+                <br><br>
+                By using Gusto, you agree to the terms of this privacy policy and the respective privacy policies of the applications, websites, or APIs that you use throughout your experience. Regardless of where you may live, you consent to the information you provide to or create in Gusto to be stored in Firebase servers in the location it has been configured to be at (currently the United States). The developer may choose to update this privacy policy at any time, in which case, he shall aim to notify you regarding any and all changes. Nevertheless, your continued use of Gusto shall be interpreted as consent to any updates done to this privacy policy.
+            </p>
+        </div>
+        <div class="point-container">
+            <h2> Signing In & Authentication </h2>
+            <p>
+                Gusto makes use of Google Sign In and Sign in with Apple as its authentication options, both of which integrate with Firebase. Once the user signs in, Gusto stores their email address (or the forwarder provided by Apple if the user chooses to hide their email address), name, and profile image, the latter two being editable by the user while they are creating their account. 
+                <br><br>
+                Gusto does not have access to any other data that may be linked to the user's Google or Apple account, nor will it ever request access for those.
+            </p>
+        </div>
+        <div class="point-container">
+            <h2> Creating Stacks </h2>
+            <p>
+                To search the appropriate items that will be placed on Cards by the user, Gusto makes use of various APIs to fetch the appropriate information. The APIs used are as follows:
+
+                <ul>
+                    <li> <a href="https://www.themoviedb.org/privacy-policy">TMDB</a> </li>
+                    <li> <a href="https://www.igdb.com/privacy_policy">IGDB</a> </li>
+                    <li> <a href="https://terms.yelp.com/privacy/en_us/20190913_en_us">Yelp</a> </li>
+                    <li> <a href="https://www.apple.com/legal/privacy/data/en/apple-music/">Apple's MusicKit</a> </li>
+                </ul>
+
+                Please select the links above to see their respective privacy policies and how they organize their and your data.
+                <br><br>
+                The Yelp API makes use of the user's coordinate location to determine the relevant restaurants to bring up from the user's search query. Gusto uses Apple's Location APIs to provide this information, which notifies the user prior to accessing their location through Apple's built-in system. Once Gusto is able to provide a set of coordinates for the Yelp API, it immediately stops accessing the user's location. Should you wish to remove location access for Gusto, you may do so within your device's settings, but note that the Restaurant Search feature will not function.
+                <br><br>
+                Apple's MusicKit requires access to the user's library in order to fetch details regarding albums. Gusto will ask for permission to do so, but will not read access into any part of your personal music library in its functions. An Apple Music subscription is not required to access it.
+            </p>
+        </div>
+        <div class="point-container">
+            <h2> Swiping through Stacks and Cards </h2>
+            <p>
+                The same APIs that are used to search for items that will be made into Cards for the Stacks are used to provide the comprehensive information available for the user to make sense of the item on the card, ie. the contact details of the restaurant on the Card. Please refer to the links in the Creating Stacks section for the corresponding privacy policies.
+            </p>
+        </div>
+        <div class="point-container">
+            <h2> Your Stored Information </h2>
+            <p>
+                To access the information Gusto stores about you, you may contact us at <a href="mailto:gusto@francovelasco.me">gusto@francovelasco.me</a>. (Note: we're just doing this manually, so please bear with us if it takes some time!)
+                <br><br>
+                You may delete your information from Gusto by deleting your account in Settings. This removes your account from the authentication system, associated additional details stored by Gusto, and any other links within the app and server (ie. your profile added to a Stack).
+            </p>
+        </div>
+        <div class="point-container">
+            <h2> Logging </h2>
+            <p>
+                To assist with the development of future features and the fixing of any bugs that may arise in Gusto, the app shall log your usage both locally and on Firebase. These logs are anonymized, meaning that they cannot be tracked to a single user or device. Should you wish to disable this feature, you can dive into Gusto settings > Data > Logging.
+            </p>
+        </div>
+        <div class="point-container">
+            <h2> Security Disclaimer </h2>
+            <p>
+                The developer strives to keep your data as secure as possible, both during transmission and storage, by employing state-of-the-art secure methods in doing so. However, it is a fact that there is no absolutely secure means of transmitting and storing data over the Internet, and we cannot fully guarantee the security of any information transmitted through such. Thus, transmitting your information through Gusto channels is done at your own risk.
+                <br><br>
+                Should your data be breached, you will be informed at the earliest opportunity. The developer shall coordinate with the relevant authorities and experts to rectify the situation.
+            </p>
+        </div>
+        <div class="point-container">
+            <h2> For EU and EEA Customers 🇪🇺 </h2>
+            <p>
+                Look at lucky you, living in an area whose government cares about your data privacy! Gusto's backend is configured (as mentioned) to primarily store your data in the United States. By using Gusto, you authorize your data to be transmitted and stored beyond the European Economic Area.
+            </p>
+        </div>
+        <div class="point-container">
+            <h2> External Links </h2>
+            <p>
+                While using Gusto, links to other apps and websites may be shown as part of the user's experience. By choosing to go to these links, the user agrees to be governed by their respective privacy policies.
+                <br><br>
+                Gusto does not inject code or interfere with any website the user chooses to access with the built-in web browser.
+            </p>
+        </div>
+        <div class="point-container">
+            <h2> Other </h2>
+            <p>
+                Gusto uses Firebase for authentication and storage, whose <a href="https://firebase.google.com/support/privacy">privacy policy is found here</a>. Certain local settings, such as but not limited to appearance preferences, sync throughout multiple devices using Apple's CloudKit (aka your iCloud account), whose <a href="https://www.apple.com/legal/privacy/en-ww/">overall privacy policy can be found here</a>. You can choose to delete those settings and data in your device's settings under your iCloud account > iCloud Drive.
+            </p>
+        </div>
+        <div class="point-container">
+            <h2> Contact </h2>
+            <p>
+                Don't be scared by the legal-ese above! If you have any concerns, questions, or comments about this policy, please shoot us an email at <a href="mailto:gusto@francovelasco.me">gusto@francovelasco.me</a>.
+            </p>
+        </div>
+        <div id="footer-transition"></div>
+        <footer>
+            <div id="footer-container">
+                <img src="Gusto Logo Light.png" alt="Gusto's app logo">
+                <div>
+                    <h2> Swipe Like You Like. </h2>
+                    <p> Get Gusto for free on the iOS App Store. </p>
+                </div>
+            </div>
+        </footer>
+        <script>
+            function chooseTLDRColor() { 
+
+            }
+
+            window.onload = chooseTLDRColor;
+        </script>
+    </body>
+</html>
