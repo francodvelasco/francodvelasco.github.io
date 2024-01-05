@@ -354,9 +354,13 @@
 
                 var API_KEY = 'ISaZB3wt65mTEquthV712ugCN8ECAscGigGB6BL9C84uxQwaYMdg2yLFP7VLjaEv';
 
+                const cors_proxy = 'https://corsproxy.io/?'
+                const rep_link_proxied = cors_proxy + encodeURIComponent('https://ap-southeast-1.aws.data.mongodb-api.com/app/data-ilccx/endpoint/data/v1/action/aggregate');
+                const vote_link_proxied = cors_proxy + encodeURIComponent('https://ap-southeast-1.aws.data.mongodb-api.com/app/data-ilccx/endpoint/data/v1/action/find');
+
                 // Fetch data about the representative
                 $.ajax({
-                    url: 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-ilccx/endpoint/data/v1/action/aggregate',
+                    url: rep_link_proxied,
                     type: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -405,64 +409,62 @@
                     }),
                     success: function(response) {
                         // Handle the response here
-                        const parsedData = JSON.parse(response);
-                        repData = parsedData.documents[0].Rep_Data[0];
-                        voteData = parsedData.documents[0].Vote_Data[0];
+                        repData = response.documents[0].Rep_Data[0];
+                        voteData = response.documents[0].Vote_Data[0];
 
                         // Create the container for votes
                         createRepContainer(repData);
 
-                        // Show the vote loading container
+                        if (repData.District_Full in vacantSeats) { return; }
+                        
+                        // Fetch data about bills
+                        $.ajax({
+                            url: vote_link_proxied,
+                            type: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Access-Control-Request-Headers': '*',
+                                'api-key': API_KEY
+                            },
+                            data: JSON.stringify({
+                                collection: 'Bills',
+                                database: 'DistrictReps',
+                                dataSource: 'SinoAngRepKo',
+                                filter: {
+                                    "$or": [
+                                        {
+                                            "No": {
+                                                "$gt": 0
+                                            }
+                                        }, 
+                                        {
+                                            "Abstain": {
+                                                "$gt": 0
+                                            }
+                                        }
+                                    ]
+                                }
+                            }),
+                            success: function(response) {
+                                // Handle the response here
+                                overallVotes = response.documents;
+
+                                let repLastName = voteData.Name;
+
+                                createVoteList(overallVotes, repLastName, voteData);
+                            },
+                            error: function(xhr, status, error) {
+                                // Handle errors here
+                                $("#loading-votes-container").addClass("hidden");
+                                $("#error-votes").removeClass('hidden');
+                            }
+                        });
                     },
                     error: function(xhr, status, error) {
                         // Handle errors here
                         // Show error dialog
                         $("#loading-rep-container").addClass("hidden");
                         $("#error-rep").removeClass('hidden');
-                    }
-                });
-
-                // Fetch data about bills
-                $.ajax({
-                    url: 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-ilccx/endpoint/data/v1/action/find',
-                    type: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Access-Control-Request-Headers': '*',
-                        'api-key': API_KEY
-                    },
-                    data: JSON.stringify({
-                        collection: 'Bills',
-                        database: 'DistrictReps',
-                        dataSource: 'SinoAngRepKo',
-                        filter: {
-                            "$or": [
-                                {
-                                    "No": {
-                                        "$gt": 0
-                                    }
-                                }, 
-                                {
-                                    "Abstain": {
-                                        "$gt": 0
-                                    }
-                                }
-                            ]
-                        }
-                    }),
-                    success: function(response) {
-                        // Handle the response here
-                        const parsedOverallVotes = JSON.parse(response);
-                        overallVotes = response.documents;
-
-                        let repLastName = voteData.Name;
-
-                        createVoteList(overallVotes, repLastName, voteData);
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle errors here
-                        $("#loading-votes-container").addClass("hidden");
-                        $("#error-votes").removeClass('hidden');
                     }
                 });
             });
@@ -492,7 +494,7 @@
 
                 const repParty = document.createElement('p');
                 repParty.id = 'rep-party';
-                repParty.textContent = `${repData.House_Block} Bloc, ${repData.Political_Party}`;
+                repParty.textContent = `${repData.House_Bloc} Bloc, ${repData.Political_Party}`;
 
                 const repLinks = document.createElement('div');
                 repLinks.id = 'rep-links';
@@ -534,7 +536,7 @@
                 repFragment.appendChild(repText);
 
                 $("#footer").removeClass('stick-to-bottom');
-                $("#rep-container").appendChild(repFragment);
+                $("#rep-container").append(repFragment);
                 $("#loading-rep-container").addClass('hidden');
                 $("#rep-container").removeClass('hidden');
             }
@@ -545,10 +547,10 @@
                 const repSpecialContainer = document.createElement('div');
                 repSpecialContainer.classList.add('rep-special-container');
 
-                const h2 = document.createElement('h2');
+                const h2 = document.createElement('h3');
                 h2.textContent = district;
 
-                const h3 = document.createElement('h3');
+                const h3 = document.createElement('h2');
                 h3.textContent = status;
 
                 const paragraph = document.createElement('p');
@@ -559,13 +561,17 @@
                 repSpecialContainer.appendChild(paragraph);
 
                 fragment.appendChild(repSpecialContainer);
-                $("#rep-special-container").appendChild(fragment);
+                $("#rep-special-container").append(fragment);
                 $("#loading-rep-container").addClass('hidden');
                 $("#rep-special-container").removeClass('hidden');
             }
 
             function createVoteList(overallVotes, repName, repVotes) { 
                 const voteFragment = document.createDocumentFragment();
+
+                console.log(overallVotes);
+                console.log(repName);
+                console.log(repVotes);
 
                 for (let overallVote of overallVotes) {
                     let repVote = repVotes[overallVote.Code];
@@ -624,9 +630,9 @@
                     voteFragment.appendChild(voteContainer);
                 }
 
-                $("rep-votes-grid-container").appendChild(voteFragment);
+                $("#rep-votes-grid-container").append(voteFragment);
                 $("#loading-votes-container").addClass('hidden');
-                $("rep-votes-container").removeClass('hidden');
+                $("#rep-votes-container").removeClass('hidden');
             }
         </script>
     </body>
