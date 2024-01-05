@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Sino Ang Rep Ko? </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#001F5B">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Public+Sans">
+        <link href="https://fonts.cdnfonts.com/css/helvetica-neue-55" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <!-- Title Bar -->
+        <header class="title-bar">
+            Sino Ang Rep Ko?
+        </header>
+        <div class="selection-container blurred">
+            <div class="drop-down no-bottom-margin" id="regions-selector-container">
+                <div class="drop-down-left">
+                    <label for="regions-selector"> Region 
+                    <select name="Region" id="regions-selector" placeholder="Region">
+                    </select>
+                    </label>
+                </div>
+            </div>
+            <div class="drop-down hidden no-bottom-margin" id="province-selector-container">
+                <div class="drop-down-left">
+                    <label for="Province" id="province-selector-label"> Province </label>
+                    <select name="Province" id="province-selector"></select>
+                </div>
+            </div>
+            <div class="drop-down hidden no-bottom-margin" id="municipality-selector-container">
+                <div class="drop-down-left">
+                    <label for="Municipality" id="municipality-selector-label"> Municipality </label>
+                    <select name="Municipality" id="municipality-selector"></select>
+                </div>
+            </div>
+            <div class="drop-down hidden no-bottom-margin" id="barangay-selector-container">
+                <div class="drop-down-left">
+                    <label for="Barangay"> Barangay </label>
+                    <select name="Barangay" id="barangay-selector"></select>
+                </div>
+            </div>
+            <button class="hidden" id="submit-location"> Find Representative </button>
+        </div>
+        <div class="loading-rep-container hidden" id="loading-rep-container">
+            <!-- Philippine Flag Sun is from Wikicommons, https://commons.wikimedia.org/wiki/File:Sun_Symbol_of_the_National_Flag_of_the_Philippines.svg -->
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#fcd116" version="1.1" viewBox="-9.5 -9.5 19 19" width="100" height="100" class="flag-star">
+                <defs>
+                  <clipPath id="g">
+                    <path d="M 0-9.5-9.5 0h19"/>
+                  </clipPath>
+                  <clipPath id="f">
+                    <path transform="rotate(-7.25)" d="M-11.057422645 0 0-8.5 2.5 0"/>
+                  </clipPath>
+                </defs>
+                <g id="b">
+                  <g id="c">
+                    <g id="d">
+                      <g id="e" clip-path="url(#f)">
+                        <path transform="rotate(-11.25)" d="M 0 0v-9.5l0.38-0.11"/>
+                        <path transform="rotate(-7.25)" d="M 0 0v-9.5l-0.38-0.11"/>
+                      </g>
+                      <g clip-path="url(#g)">
+                        <path id="a" transform="rotate(-3.75)" d="M 0-9.5v9.5l0.9-9.95"/>
+                        <use transform="scale(-1,1)" xlink:href="#a"/>
+                      </g>
+                      <use transform="scale(-1,1)" xlink:href="#e"/>
+                    </g>
+                    <use transform="scale(-1)" xlink:href="#d"/>
+                  </g>
+                  <use transform="rotate(90)" xlink:href="#c"/>
+                </g>
+                <use transform="rotate(45)" xlink:href="#b"/>
+                <circle r="4.5"/>
+              </svg>
+              
+            <p>
+                Finding your representative...
+            </p>           
+        </div>
+        <div class="rep-container hidden" id="rep-container">
+        </div>
+        <div class="hidden" id="rep-special-container">
+            
+        </div>
+        <div id="error-rep" class="hidden">
+            <div class="error-container">
+                <h2> Error: Representative cannot be found. </h2>
+                <p> Representative data cannot be fetched. Try again later. </p>
+            </div>
+        </div>
+        <div class="loading-rep-container hidden" id="loading-votes-container">
+            <!-- Philippine Flag Sun is from Wikicommons, https://commons.wikimedia.org/wiki/File:Sun_Symbol_of_the_National_Flag_of_the_Philippines.svg -->
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#fcd116" version="1.1" viewBox="-9.5 -9.5 19 19" width="100" height="100" class="flag-star">
+                <defs>
+                  <clipPath id="g">
+                    <path d="M 0-9.5-9.5 0h19"/>
+                  </clipPath>
+                  <clipPath id="f">
+                    <path transform="rotate(-7.25)" d="M-11.057422645 0 0-8.5 2.5 0"/>
+                  </clipPath>
+                </defs>
+                <g id="b">
+                  <g id="c">
+                    <g id="d">
+                      <g id="e" clip-path="url(#f)">
+                        <path transform="rotate(-11.25)" d="M 0 0v-9.5l0.38-0.11"/>
+                        <path transform="rotate(-7.25)" d="M 0 0v-9.5l-0.38-0.11"/>
+                      </g>
+                      <g clip-path="url(#g)">
+                        <path id="a" transform="rotate(-3.75)" d="M 0-9.5v9.5l0.9-9.95"/>
+                        <use transform="scale(-1,1)" xlink:href="#a"/>
+                      </g>
+                      <use transform="scale(-1,1)" xlink:href="#e"/>
+                    </g>
+                    <use transform="scale(-1)" xlink:href="#d"/>
+                  </g>
+                  <use transform="rotate(90)" xlink:href="#c"/>
+                </g>
+                <use transform="rotate(45)" xlink:href="#b"/>
+                <circle r="4.5"/>
+              </svg>
+            <p>
+                Finding their votes...
+            </p>           
+        </div>
+        <div class="rep-votes hidden" id="rep-votes-container">
+            <h2> Votes </h2>
+            <div class="rep-vote-grid" id="rep-votes-grid-container">
+                
+            </div>
+        </div>
+        <div id="error-votes" class="hidden">
+            <div class="error-container">
+                <h2> Error: Votes cannot be found. </h2>
+                <p> Vote data cannot be fetched. Try again later. </p>
+            </div>
+        </div>
+        <footer class="stick-to-bottom" id="footer">
+            <p>
+                Images, names, profiles, contact numbers, and votes of the Representatives are sourced
+                from the House of Representatives website. Emails and Facebook profiles were searched manually.
+                Votes shown on this website are filtered to only include those where a Representative either voted against or abstained.
+            </p>
+            <p>
+                This website was built manually with raw HTML, CSS, JavaScript and JQuery. All non-image data is stored using MongoDB. Python was used to extract voting data from House Journals.
+            </p>
+            <p>
+                Questions and corrections about the data and website can be sent to <a href="mailto:sinoangrepko@vlsc.dev">this email</a>.
+            </p>
+            <p>
+                Developed by <a href="https://vlsc.dev">Franco Velasco</a>.
+            </p>
+            <p>
+                🇵🇭
+            </p>
+        </footer>
+        <script>
+            let chosenRegion = "";
+            let chosenProvince = "";
+            let chosenMunicipality = "";
+            let chosenBarangaySpecCity = "";
+            let isNCR = false;
+
+            let provinceMunicipalityDict = {};
+
+            let location_query = {};
+
+            let specialCities = {};
+
+            let vacantSeats = {};
+
+            let repData = {};
+            let voteData = {};
+            let overallVotes = {};
+
+            $(document).ready(function() {
+                $.getJSON("JSON Files/regions.json", function(data) {
+                    // Loop through the data and create options for the dropdown
+                    $("#regions-selector").append($("<option disabled>").val('Region').text('Region').attr("selected", "selected"));
+                    $.each(data, function(key, value) {
+                        $("#regions-selector").append($("<option>").val(key).text(value));
+                    });
+                });
+
+                // Prefetch the list of special cities
+                $.getJSON("JSON Files/cities_multiple_districts.json", (cities) => { 
+                    specialCities = new Set(cities);
+                });
+
+                // Prefetch the special districts
+                $.getJSON("JSON Files/Special_Districts.json", (data) => { 
+                    vacantSeats = data;
+                });
+            });
+
+            $("#regions-selector").change(function() { 
+                $("#regions-selector-container").removeClass('no-bottom-margin');
+                chosenRegion = $("#regions-selector :selected").text();
+                let regionAbbrev = chosenRegion.split(" - ")[0].trim();
+
+                // If ever the user changes the region even if the other dropdowns are filled, remove all other dropdowns
+                $("#province-selector-container").addClass('hidden').addClass('no-bottom-margin');
+                $("#municipality-selector-container").addClass('hidden').addClass('no-bottom-margin');
+                $("#barangay-selector-container").addClass("hidden").addClass('no-bottom-margin');
+                $("#submit-location").addClass('hidden');
+
+                // Clear out the options within the other dropdowns
+                $("#province-selector")
+                    .find("option")
+                    .remove()
+                    .end();
+                
+                $("#municipality-selector")
+                    .find("option")
+                    .remove()
+                    .end();
+
+                if (regionAbbrev == "NCR") { 
+                    isNCR = true;
+                    // Selection within NCR is done by city or municipality (Pateros), the highest level subdivision
+                    $("#province-selector-label").text("City or Municipality");
+                    $("#municipality-selector-label").text("Barangay");
+                    $("#province-selector").append($("<option disabled>").val('City / Municipality').text('City / Municipality').attr("selected", "selected"));
+                    $("#municipality-selector").append($("<option disabled>").val('Barangay').text('Barangay').attr("selected", "selected"));
+                } else { 
+                    isNCR = false;
+                    // All other regions have provinces as their highest level subdivision (for the purposes of this website)
+                    $("#province-selector-label").text("Province");
+                    $("#municipality-selector-label").text("Municipality");
+                    $("#province-selector").append($("<option disabled>").val('Province').text('Province').attr("selected", "selected"));
+                    $("#municipality-selector").append($("<option disabled>").val('City / Municipality').text('City / Municipality').attr("selected", "selected"));
+                }
+
+                const provinceFileName = regionAbbrev == "NCR" ? `JSON Files/NCR_barangay_list.json` : `JSON Files/${regionAbbrev}_municipality_list.json`;
+
+                $.getJSON(provinceFileName, function (data) { 
+                    provinceMunicipalityDict = data;
+                    $.each(provinceMunicipalityDict, function (province, munList) { 
+                        $("#province-selector").append($("<option>").val(province).text(province));
+                    });
+                });
+
+                $("#province-selector-container").removeClass('hidden');
+            });
+
+            $("#province-selector").change(() => { 
+                $("#province-selector-container").removeClass('no-bottom-margin');
+                chosenProvince = $("#province-selector :selected").text();
+
+                $("#municipality-selector")
+                    .find("option")
+                    .remove()
+                    .end();
+                
+                if (isNCR) { 
+                    $("#municipality-selector").append($("<option disabled>").val('Barangay').text('Barangay').attr("selected", "selected"));
+                } else { 
+                    $("#municipality-selector").append($("<option disabled>").val('City / Municipality').text('City / Municipality').attr("selected", "selected"));
+                }
+                
+                $.each(provinceMunicipalityDict[chosenProvince], function (count, municipality) { 
+                    $("#municipality-selector").append($("<option>").val(municipality).text(municipality));
+                });
+
+                $("#municipality-selector-container").removeClass('hidden');
+            });
+
+            $("#municipality-selector").change(() => { 
+                chosenMunicipality = $("#municipality-selector :selected").text();
+
+                // Check if it is a city that is split into multiple congressional districts
+                // If yes, bring up barangay drop down
+                if (specialCities.has(chosenMunicipality)) { 
+                    $.getJSON("JSON Files/cities_outside_ncr_barangays.json", (dict) => { 
+                        $("#barangay-selector").append($("<option disabled>").val('Barangay').text('Barangay').attr("selected", "selected"));
+                        $.each(dict[chosenMunicipality], (count, barangay) => { 
+                            $("#barangay-selector").append($("<option>").val(barangay).text(barangay));
+                        });
+                    });
+
+                    $("#barangay-selector-container").removeClass("hidden");
+                } else { // If no, remove barangay drop down
+                    $("#barangay-selector-container").addClass("hidden");
+                    $("#barangay-selector")
+                        .find("option")
+                        .remove()
+                        .end();
+                    
+                    // Since we don't have to show the barangay dropdown, we can show the find button
+                    $("#submit-location").removeClass('hidden');
+                }
+            });
+
+            $("#barangay-selector").change(() => { 
+                chosenBarangaySpecCity = $("#barangay-selector :selected").text();
+
+                $("#submit-location").removeClass('hidden');
+            });
+
+            $("#submit-location").click(function() { 
+                // Hello to all you nerds reading this! You may be freaked out by the sight of seeing an API key right here, copy-pasted raw.
+                // Yes, I am fully aware that this is really, really, really bad practice.
+                // However, I am broke, thus creating a middle-man back-end that fetches directly from the MongoDB database (aka making a separate server) costs me money :(
+                // This website is also made using just pure Javascript and JQuery, so all the fancy tools in front-end frameworks like React and Angular that allow for .env variables aren't available here
+
+                // Given that pretty much none of the data I'm storing is sensitive (Representatives are public servants, after all), and everything that can be separated is separated from my personal details
+                // (ie. custom API key for this reading purpose, custom account for MongoDB, etc)
+                // I have decided it's worth the security trade-off.
+
+                // If you're someone who'd like to work with me, please do know I am aware of best practices when it comes to developing secure full-stack websites :D
+                // But for now, this will suffice.
+                // If you'd like to donate some money to help fund a secure server for this, or just suggest free ways to host a node server, please contact me :)
+                // Of if you'd like to use the data I've collected for whatever purpose, reach out and I'll see if I could make another API key / token for you 
+                console.log("Should do the fetching here");
+                location_query = {};
+
+                if (isNCR) { 
+                    // To fetch NCR district: City + Barangay
+                    location_query['City'] = chosenProvince;
+                    location_query['Barangay'] = chosenMunicipality;
+                } else if (specialCities.has(chosenMunicipality)) { 
+                    // To fetch special districted cities: Province + City + Barangay
+                    location_query['Province'] = chosenProvince;
+                    location_query['City'] = chosenMunicipality;
+                    location_query['Barangay'] = chosenBarangaySpecCity;
+                } else { 
+                    // All other fetches: Province + Municipality-City
+                    location_query['Province'] = chosenProvince;
+                    location_query['Municipality-City'] = chosenMunicipality;
+                }
+
+                console.log(location_query);
+
+                // Show the loading icon for rep
+                $("#loading-rep-container").removeClass("hidden");
+
+                // Hide then clear out previous contents of divs
+                $("#rep-container").addClass('hidden');
+                $("#rep-container").empty();
+
+                $("#rep-special-container").addClass('hidden');
+                $("#rep-special-container").empty();
+
+                $("#rep-votes-container").addClass('hidden');
+                $("#rep-votes-grid-container").empty();
+
+                $("#error-rep").addClass('hidden');
+                $("#error-votes").addClass('hidden');
+
+                // Make bottom sticky again
+                $("#footer").addClass('stick-to-bottom');
+
+                var API_KEY = 'ISaZB3wt65mTEquthV712ugCN8ECAscGigGB6BL9C84uxQwaYMdg2yLFP7VLjaEv';
+
+                // Fetch data about the representative
+                $.ajax({
+                    url: 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-ilccx/endpoint/data/v1/action/aggregate',
+                    type: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Request-Headers': '*',
+                        'api-key': API_KEY
+                    },
+                    data: JSON.stringify({
+                        collection: 'Districts',
+                        database: 'DistrictReps',
+                        dataSource: 'SinoAngRepKo',
+                        pipeline: [
+                            {
+                                "$match": location_query,
+                            },
+                            {
+                                "$lookup": { 
+                                    'from': 'Representatives',
+                                    'localField': 'District',
+                                    'foreignField': 'District_Short',
+                                    'as': 'Rep_Data'
+                                }
+                            },
+                            {
+                                "$project": { 
+                                    "Rep_Data.District_Full": 1,
+                                    "Rep_Data.Rep_Full": 1,
+                                    "Rep_Data.Rep_Journal": 1,
+                                    "Rep_Data.Political_Party": 1,
+                                    "Rep_Data.House_Bloc": 1,
+                                    "Rep_Data.Rep_Image": 1,
+                                    "Rep_Data.Rep_Profile": 1,
+                                    "Rep_Data.Rep_Phone": 1,
+                                    "Rep_Data.Rep_Email": 1,
+                                    "Rep_Data.Rep_Facebook": 1
+                                }
+                            },
+                            {
+                                "$lookup": { 
+                                    'from': 'Votes-Bill-Lead',
+                                    'localField': 'Rep_Data.Rep_Journal',
+                                    'foreignField': 'Name',
+                                    'as': 'Vote_Data'
+                                }
+                            }
+                        ]
+                    }),
+                    success: function(response) {
+                        // Handle the response here
+                        const parsedData = JSON.parse(response);
+                        repData = parsedData.documents[0].Rep_Data[0];
+                        voteData = parsedData.documents[0].Vote_Data[0];
+
+                        // Create the container for votes
+                        createRepContainer(repData);
+
+                        // Show the vote loading container
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle errors here
+                        // Show error dialog
+                        $("#loading-rep-container").addClass("hidden");
+                        $("#error-rep").removeClass('hidden');
+                    }
+                });
+
+                // Fetch data about bills
+                $.ajax({
+                    url: 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-ilccx/endpoint/data/v1/action/find',
+                    type: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Request-Headers': '*',
+                        'api-key': API_KEY
+                    },
+                    data: JSON.stringify({
+                        collection: 'Bills',
+                        database: 'DistrictReps',
+                        dataSource: 'SinoAngRepKo',
+                        filter: {
+                            "$or": [
+                                {
+                                    "No": {
+                                        "$gt": 0
+                                    }
+                                }, 
+                                {
+                                    "Abstain": {
+                                        "$gt": 0
+                                    }
+                                }
+                            ]
+                        }
+                    }),
+                    success: function(response) {
+                        // Handle the response here
+                        const parsedOverallVotes = JSON.parse(response);
+                        overallVotes = response.documents;
+
+                        let repLastName = voteData.Name;
+
+                        createVoteList(overallVotes, repLastName, voteData);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle errors here
+                        $("#loading-votes-container").addClass("hidden");
+                        $("#error-votes").removeClass('hidden');
+                    }
+                });
+            });
+
+            function createRepContainer(repData) { 
+                if (repData.District_Full in vacantSeats) { 
+                    createSpecialRepContainer(repData.District_Full, repData.Rep_Full);
+                    return;
+                }
+
+                const repFragment = document.createDocumentFragment();
+
+                const repImage = document.createElement('img');
+                repImage.src = repData.Rep_Image;
+                repImage.alt = `Official Portrait Photo of ${repData.Rep_Full}`;
+
+                const repText = document.createElement('div');
+                repText.classList.add('rep-text');
+
+                const repName = document.createElement('h1');
+                repName.id = 'rep-name';
+                repName.textContent = repData.Rep_Full;
+
+                const repDistrict = document.createElement('h3');
+                repDistrict.id = 'rep-district';
+                repDistrict.textContent = repData.District_Full;
+
+                const repParty = document.createElement('p');
+                repParty.id = 'rep-party';
+                repParty.textContent = `${repData.House_Block} Bloc, ${repData.Political_Party}`;
+
+                const repLinks = document.createElement('div');
+                repLinks.id = 'rep-links';
+
+                const repProfileLink = document.createElement('a');
+                repProfileLink.href = repData.Rep_Profile;
+                repProfileLink.classList.add('button-link');
+                repProfileLink.textContent = "House Profile ↗";
+                repLinks.appendChild(repProfileLink);
+
+                const repPhoneLink = document.createElement('a');
+                repPhoneLink.href = `tel:${repData.Rep_Phone}`;
+                repPhoneLink.classList.add('button-link');
+                repPhoneLink.textContent = "Phone ↗";
+                repLinks.appendChild(repPhoneLink);
+
+                if (repData.Rep_Email == "") { 
+                    const repEmailLink = document.createElement('a');
+                    repEmailLink.href = `mailto:${repData.Rep_Email}`;
+                    repEmailLink.classList.add('button-link');
+                    repEmailLink.textContent = "Email ↗";
+                    repLinks.appendChild(repEmailLink);
+                }
+
+                if (repData.Rep_Facebook == "") { 
+                    const repFacebookLink = document.createElement('a');
+                    repFacebookLink.href = repData.Rep_Facebook;
+                    repFacebookLink.classList.add('button-link');
+                    repFacebookLink.textContent = "Facebook ↗";
+                    repLinks.appendChild(repFacebookLink);
+                }
+
+                repText.appendChild(repName);
+                repText.appendChild(repDistrict);
+                repText.appendChild(repParty);
+                repText.appendChild(repLinks);
+
+                repFragment.appendChild(repImage);
+                repFragment.appendChild(repText);
+
+                $("#footer").removeClass('stick-to-bottom');
+                $("#rep-container").appendChild(repFragment);
+                $("#loading-rep-container").addClass('hidden');
+                $("#rep-container").removeClass('hidden');
+            }
+
+            function createSpecialRepContainer(district, status) { 
+                const fragment = document.createDocumentFragment();
+
+                const repSpecialContainer = document.createElement('div');
+                repSpecialContainer.classList.add('rep-special-container');
+
+                const h2 = document.createElement('h2');
+                h2.textContent = district;
+
+                const h3 = document.createElement('h3');
+                h3.textContent = status;
+
+                const paragraph = document.createElement('p');
+                paragraph.textContent = vacantSeats[district]['en'];
+
+                repSpecialContainer.appendChild(h2);
+                repSpecialContainer.appendChild(h3);
+                repSpecialContainer.appendChild(paragraph);
+
+                fragment.appendChild(repSpecialContainer);
+                $("#rep-special-container").appendChild(fragment);
+                $("#loading-rep-container").addClass('hidden');
+                $("#rep-special-container").removeClass('hidden');
+            }
+
+            function createVoteList(overallVotes, repName, repVotes) { 
+                const voteFragment = document.createDocumentFragment();
+
+                for (let overallVote of overallVotes) {
+                    let repVote = repVotes[overallVote.Code];
+
+                    let repVoteMetadata = { 
+                        "Yes": { 
+                            "class-name": "vote-yes",
+                            "text-content": `${repName} voted ${repVote}`
+                        },
+                        "No": { 
+                            "class-name": "vote-no",
+                            "text-content": `${repName} voted ${repVote}`
+                        },
+                        "Abstain": { 
+                            "class-name": "vote-abstain",
+                            "text-content": `${repName} abstained`
+                        },
+                        "Did Not Vote": { 
+                            "class-name": "vote-no-vote",
+                            "text-content": `${repName} did not vote`
+                        }
+                    }
+
+                    let currentRepMetadata = repVoteMetadata[repVote];
+
+                    const voteContainer = document.createElement('div');
+                    voteContainer.classList.add('vote-container');
+
+                    // Change background color here
+                    const voteRep = document.createElement('div');
+                    voteRep.classList.add('vote-rep', currentRepMetadata['class-name']);
+                    voteRep.textContent = currentRepMetadata['text-content'];
+
+                    // Create vote bill number div
+                    const voteBillNumber = document.createElement('div');
+                    voteBillNumber.classList.add('vote-bill-number');
+                    voteBillNumber.textContent = overallVote.Measure;
+
+                    // Create vote title div
+                    const voteTitle = document.createElement('div');
+                    voteTitle.classList.add('vote-title');
+                    voteTitle.textContent = overallVote.Title;
+
+                    // Create vote overall div
+                    const voteOverall = document.createElement('div');
+                    voteOverall.classList.add('vote-overall');
+                    const voteStatus = overallVote.Status === 'Approved' ? '✓ Approved by House' : '✗ Rejected by House';
+                    voteOverall.textContent = `${voteStatus}, ${overallVote.Yes} Yes - ${overallVote.No} No - ${overallVote.Abstain} Abstain`;
+
+                    // Append elements
+                    voteContainer.appendChild(voteRep);
+                    voteContainer.appendChild(voteBillNumber);
+                    voteContainer.appendChild(voteTitle);
+                    voteContainer.appendChild(voteOverall);
+
+                    voteFragment.appendChild(voteContainer);
+                }
+
+                $("rep-votes-grid-container").appendChild(voteFragment);
+                $("#loading-votes-container").addClass('hidden');
+                $("rep-votes-container").removeClass('hidden');
+            }
+        </script>
+    </body>
+</html>
