@@ -1,0 +1,55 @@
+{
+    "Antipolo City": [
+        "Bagong Nayon",
+        "Beverly Hills",
+        "Calawis",
+        "Cupang",
+        "Dalig",
+        "Dela Paz",
+        "Inarawan",
+        "Mambugan",
+        "Mayamot",
+        "Muntindilaw",
+        "San Isidro",
+        "San Jose",
+        "San Juan",
+        "San Luis",
+        "San Roque",
+        "Santa Cruz"
+    ],
+    "Cagayan de Oro City": [
+        "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+        "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40",
+        "Agusan", "Baikingon", "Balubal", "Balulang", "Bayabas", "Bayanga", "Besigan", "Bonbon", "Bugo", "Bulua", "Calaanan",
+        "Camaman-an", "Canitoan", "Carmen", "Consolacion", "Cugman", "Dansolihon", "F.S. Catanico", "Gusa", "Indahag",
+        "Iponan", "Kauswagan", "Lapasan (Agora)", "Lumbia", "Mambuaya", "Macabalan", "Macasandig", "Nazareth", "Pagalungan",
+        "Pagatpat", "Patag", "Pigsag-an", "Puerto", "Puntod", "San Simon", "Taglimao", "Tagpangi", "Tignapoloan", "Tablon", "Tuburan",
+        "Tumpagon"
+    ],
+    "Cebu City": [
+        "Adlaon", "Agsungot", "Apas", "Babag", "Bacayan", "Basak Pardo", "Basak San Nicolas", "Binaliw", "Bonbon",
+        "Budla-an", "Buhisan", "Bulacao", "Buot-Taup", "Busay", "Calamba", "Cambinocot", "Camputhaw", "Capitol Site",
+        "Carreta", "Central (Santo Niño)", "Cogon Pardo", "Cogon Ramos", "Day-as", "Duljo", "Ermita", "Guadalupe",
+        "Guba", "Hipodromo", "Inayawan", "Kalubihan", "Kalunasan", "Kamagayan", "Kasambagan", "Kinasang-an", "Labangon",
+        "Lahug", "Lorega San Miguel", "Lusaran", "Luz", "Mabini", "Mabolo Proper", "Mambaling", "Malubog", "Pahina Central",
+        "Pahina San Nicolas", "Pamutan", "Parian", "Paril", "Pasil", "Pit-os", "Poblacion Pardo", "Pulangbato",
+        "Pung-ol Sibugay", "Punta Princesa", "Quiot", "Sambag I", "Sambag II", "San Antonio", "San Jose", "San Nicolas Proper",
+        "San Roque", "Santa Cruz", "Sapangdaku", "Sawang Calero", "Sirao", "Sinsin", "Suba", "Sudlon I", "Sudlon II",
+        "T. Padilla", "Tabunan", "Tagbao", "Talamban", "Taptap", "Tejero", "Tinago", "Tisa", "Toong", "Zapatera"
+    ],
+    "Davao City": [
+        "Agdao", "Baguio", "Buhangin", "Bunawan", "Calinan", "Marilog", "Paquibato", "Poblacion", "Talomo", "Toril", "Tugbok"
+    ],
+    "Zamboanga City": [
+        "Arena Blanco", "Ayala", "Bagong Calarian", "Baliwasan", "Baluno", "Boalan", "Bolong", "Buenavista", "Bunguiao", "Busay",
+        "Cabaluay", "Cacao", "Cabatangan", "Calabasa", "Campo Islam", "Camino Nuevo", "Canelar", "Capisan", "Cawit", "Curuan",
+        "Dita", "Divisoria", "Dulian (Upper Bunguiao)", "Dulian (Upper Pasonanca)", "Guisao", "Guiwan", "Kasanyangan", "La Paz",
+        "Labuan", "Lamisahan", "Landang Gua", "Landang Laum", "Lanzones", "Lapakan", "Latuan", "Licomo", "Limaong", "Limpapa",
+        "Lubigan", "Lumayang", "Lumbangan", "Lunzuran", "Mampang", "Manalipa", "Mangusu", "Manicahan", "Maasin", "Malagutay",
+        "Mariki", "Mercedes", "Muti", "Pamucutan", "Pangapuyan", "Panubigan", "Pasonanca", "Pasilmanta", "Pasobolong", "Patalon",
+        "Putik", "Quiniput", "Recodo", "Rio Hondo", "Salaan", "San Jose Cawa-Cawa", "San Jose Gusu", "San Roque", "Santa Barbara",
+        "Santa Catalina", "Santa Maria", "Sangali", "Santo Niño", "Sibulao", "Sinubung", "Sinunuc", "Tagasilay", "Taguiti", "Talabaan",
+        "Talon-Talon", "Taluksangay", "Tetuan", "Tictabon", "Tictapul", "Tigbalabag", "Tumaga", "Tumalutap", "Tumitus", "Tugbungan",
+        "Victoria", "Vitali", "Zambowood", "Zone 1", "Zone 2", "Zone 3", "Zone 4"
+    ]
+}
