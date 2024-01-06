@@ -264,6 +264,7 @@
             });
 
             $("#municipality-selector").change(() => { 
+                $("#municipality-selector-container").removeClass('no-bottom-margin');
                 chosenMunicipality = $("#municipality-selector :selected").text();
 
                 // Check if it is a city that is split into multiple congressional districts
