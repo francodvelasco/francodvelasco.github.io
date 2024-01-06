@@ -137,7 +137,7 @@
                 <p> Vote data cannot be fetched. Try again later. </p>
             </div>
         </div>
-        <footer class="stick-to-bottom" id="footer">
+        <footer id="footer">
             <p>
                 Images, names, profiles, contact numbers, and votes of the Representatives are sourced
                 from the House of Representatives website. Emails and Facebook profiles were searched manually.
@@ -309,7 +309,6 @@
                 // But for now, this will suffice.
                 // If you'd like to donate some money to help fund a secure server for this, or just suggest free ways to host a node server, please contact me :)
                 // Of if you'd like to use the data I've collected for whatever purpose, reach out and I'll see if I could make another API key / token for you 
-                console.log("Should do the fetching here");
                 location_query = {};
 
                 if (isNCR) { 
@@ -326,8 +325,6 @@
                     location_query['Province'] = chosenProvince;
                     location_query['Municipality-City'] = chosenMunicipality;
                 }
-
-                console.log(location_query);
 
                 // Show the loading icon for rep
                 $("#loading-rep-container").removeClass("hidden");
@@ -346,7 +343,7 @@
                 $("#error-votes").addClass('hidden');
 
                 // Make bottom sticky again
-                $("#footer").addClass('stick-to-bottom');
+                //$("#footer").addClass('stick-to-bottom');
 
                 var API_KEY = 'ISaZB3wt65mTEquthV712ugCN8ECAscGigGB6BL9C84uxQwaYMdg2yLFP7VLjaEv';
 
@@ -564,10 +561,6 @@
 
             function createVoteList(overallVotes, repName, repVotes) { 
                 const voteFragment = document.createDocumentFragment();
-
-                console.log(overallVotes);
-                console.log(repName);
-                console.log(repVotes);
 
                 for (let overallVote of overallVotes) {
                     let repVote = repVotes[overallVote.Code];
