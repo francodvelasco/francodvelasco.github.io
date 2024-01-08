@@ -505,7 +505,7 @@
                 repPhoneLink.textContent = "Phone ↗";
                 repLinks.appendChild(repPhoneLink);
 
-                if (repData.Rep_Email == "") { 
+                if (repData.Rep_Email != "") { 
                     const repEmailLink = document.createElement('a');
                     repEmailLink.href = `mailto:${repData.Rep_Email}`;
                     repEmailLink.classList.add('button-link');
@@ -513,7 +513,7 @@
                     repLinks.appendChild(repEmailLink);
                 }
 
-                if (repData.Rep_Facebook == "") { 
+                if (repData.Rep_Facebook != "") { 
                     const repFacebookLink = document.createElement('a');
                     repFacebookLink.href = repData.Rep_Facebook;
                     repFacebookLink.classList.add('button-link');
