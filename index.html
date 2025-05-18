@@ -4,272 +4,56 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#004D7F">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
         <link rel="prefetch" href="https://kit.fontawesome.com/2d80a0df53.js">
         <script src="https://kit.fontawesome.com/2d80a0df53.js" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="icon" href="favicon.ico">
-        <script src="headerScript.js"></script>
         <title> Franco Velasco </title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header>
+        <section class="main">
             <div>
-                <div class="nav-bar-title">
-                    <h1> Franco Velasco </h1>
-                </div>
-                <div class="links">
-                    <p class="hover-underline-animation"><a href="#projects"> 🛠️ Projects </a> </p>
-                    <p class="hover-underline-animation"><a href="#experience">  👨🏽‍💻 Experience </a> </p>
-                    <p class="hover-underline-animation"><a href="#skills"> 🎓 Skills </a> </p>
-                </div>
-                <input class="mobile-nav-bar-checkbox" id="hamburger-checkbox"type="checkbox">
-                <label class="mobile-nav-bar-checkbox" for="hamburger-checkbox"> Show Website Parts </label>
-                <div class="mobile-nav-bar-hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <div class="mobile-nav-bar">
-                    <a href="#projects"><p class="link"> 🛠️ Projects </p> </a>
-                    <a href="#experience"><p class="link">  👨🏽‍💻 Experience </p> </a>
-                    <a href="#skills"><p class="link"> 🎓 Skills </p> </a>
-                </div>
-            </div>
-        </header>
-        <section class="start">
-            <div style="padding:1em">
-                <img src="Images/Animoji.PNG" alt="Animoji Icon of Me!">
                 <div>
-                    <h1>🙋🏽‍♂️ Hey! I'm Franco.</h1>
-                    <div style="padding-bottom: 1em">
-                        CS Student at Ateneo de Manila. iOS Developer. Maker of Magnate and Gusto.
+                    <div id="bio">
+                        <h1> Franco Velasco </h1>
+                        <div style="padding-bottom: 1em">
+                            <p> Data Engineer at P&G. Apple-awarded iOS Developer. </p>
+                            <p> Computer Science at Ateneo de Manila '24, Summa Cum Laude. </p>
+                        </div>
                     </div>
 
                     <div class="link-container">
                         <a href="https://twitter.com/_Francodes" target="_new" aria-label="Developer Twitter Account">
-                            <div class="link footer-link" style="background-color: #1DA1F2;">
-                                    <i class="fab fa-twitter">
-                                    </i>
+                            <div class="link footer-link" id="twitter">
+                                <i class="fab fa-twitter"></i> 
                             </div>
                         </a>
-                        <a href="https://mastodon.social/@francodvelasco" target="_new" aria-label="Mastodon Profile">
-                            <div class="link footer-link" style="background-color: #6364ff;">
-                                <i class="fab fa-mastodon"></i>
-                            </div>
-                        </a>
-                        <a href="mailto:franco@vlsc.dev" target="_new" aria-label="Email">
-                            <div class="link footer-link" style="background-color: #DB4437;">
-                                    <i class="far fa-envelope">
-                                    </i>
+                        <a href="mailto:franco-fromwebsite@vlsc.dev" target="_new" aria-label="Email">
+                            <div class="link footer-link" id="email">
+                                <i class="fa-solid fa-envelope"></i>
                             </div>
                         </a>
                         <a href="https://github.com/francodvelasco" target="_new" aria-label="Github">
-                            <div class="link footer-link" style="background-color: #171515;">
-                                <i class="fab fa-github">
-                                </i>
+                            <div class="link footer-link" id="github">
+                                <i class="fab fa-github"></i>
                             </div>
                         </a>
                         <a href="https://www.linkedin.com/in/francodvelasco/" target="_new" aria-label="LinkedIn">
-                            <div class="link footer-link" style="background-color: #0072b1;">
-                                <i class="fab fa-linkedin">
-                                </i>
+                            <div class="link footer-link" id="linkedin">
+                                <i class="fab fa-linkedin"></i>
                             </div>
                         </a>
-                        <a href="Files/Resume Velasco.pdf" target="_new" aria-label="My Résumé">
-                            <div class="link footer-link" style="background-color: #278036;">
-                                <i class="far fa-file">
-                                </i>
+                        <a href="https://www.threads.com/@francodvelasco" target="_new" aria-label="Threads">
+                            <div class="link footer-link" id="threads">
+                                <i class="fa-brands fa-threads"></i>
                             </div>
                         </a>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="info" id="projects">
-            <h1>🛠️ Projects </h1>
-            <div class="project-container" id="projects-link">
-                <img src="Gusto/Gusto Logo Dark.png" alt="Gusto logo">
-                <div>
-                    <h3> Gusto </h3>
-                    <p> February 2022 - Present | Swift, SwiftUI, UIKit, Firebase </p>
-                    <p>
-                        A social media application where users can create a list of restaurants, movies, TV shows, music albums,
-                        or video games to send to their friends, who can swipe through the list items in a dating app-like manner
-                        to let the friend group know which item is most liked and least liked. Currently in Alpha testing.
-                    </p>
-                </div>
-            </div>
-            <div class="project-container">
-                <img src="Images/GerryLearner.png" alt="GerryLearner logo">
-                <div>
-                    <h3> GerryLearner </h3>
-                    <p> April 2022 | Swift, SwiftUI, RealityKit, ARKit, GameplayKit </p>
-                    <p>
-An iOS app that lets the user learn what gerrymandering is through an interactive game, along with a feature that lets the user see the map in 3D using RealityKit and ARKit.
-Winning entry for the WWDC 2022 Apple Swift Student Challenge.
-                    </p>
-                    <p><a href="https://github.com/francodvelasco/GerryLearner" class="hover-underline-animation"> See the source code on GitHub. ↗  </a> </p>
-                </div>
-            </div>
-            <div class="project-container">
-                <img src="MagnateLogo.png" alt="Magnate">
-                <div>
-                    <h3> Magnate </h3>
-                    <p> August 2020 - Present | Swift, SwiftUI, UIKit </p>
-                    <p>
-A Budget Management app designed with and for the simplicity and power of iOS. 
-Features include tag and profile logging, notes, picture and location support in entries, statistics and forecasting, goals, CSV and calendar export, widgets, notifications. iCloud Syncing, Siri Shortcut support, and more.
-Hit #1 in the Top Paid Finance Apps in the Philippines, #20 in the USA. In use in over 50 countries with a 5.0 rating.
-                    </p>
-                    <p><a href="http://francovelasco.me/Magnate/app" class="hover-underline-animation"> Get it for free on the iOS App Store. ↗  </a> </p>
-                </div>
-            </div>
-            <div class="project-container">
-                <img src="Images/SimulVac.png" alt="SimulVac Screen">
-                <div>
-                    <h3> SimulVac </h3>
-                    <p> April 2021 | Swift, SwiftUI, Playgrounds </p>
-                    <p>
-A simulator that lets the user see how the COVID-19 pandemic might play out in a population given differing vaccination rates, and differing COVID-19 vaccine brands (spoiler: deaths drop by over 90%, regardless of brand).
-Winning entry for the WWDC 2021 Apple Swift Student Challenge.
-                    </p>
-                    <p><a href="https://github.com/francodvelasco/SimulVac" class="hover-underline-animation"> See the source code on GitHub. ↗  </a> </p>
-                </div>
-            </div>
-        </section>
-        <section class="info" id="experience">
-            <h1> 👨🏽‍💻 Experience </h1>
-            <div class="experience-container" id="experience-link">
-                <img src="Images/Luna Securities.jpeg" alt="Luna Securities Logo">
-                <div> 
-                    <h3> Research Database Specialist, Luna Securities </h3>
-                    <p> July 2022 - Present </p>
-                    <p>
-                        Reduced time needed for historical stock analysis by 90% by creating Python scripts that parsed
-                        through previous stock price data and generate correlations with other economic factors, saving 125 man-hours.
-                        Created programs that automatically generate Price-Earnings Ratio, Price-Book Value Ratio, and Dividend Yield charts per company, reducing the time needed to generate them from 4 hours to 5 seconds.
-                        Contributed to the Luna app back-end which provides the parsed insights and charts to the front-end. Provided advice on the design of the Luna app front-end.
-                    </p>
-                </div>
-            </div>
-            <div class="experience-container">
-                <img src="Images/CompSAtLogo.png" alt="CompSAt Logo">
-                <div> 
-                    <h3> Vice President for Development and Training, Computer Society of the Ateneo </h3>
-                    <p> July 2021 - June 2022 </p>
-                    <p>
-                        Trained 100+ students in Web, Python, and iOS Development, and more through designing, organizing and launching the Tier Training Program. Mentored 5 students to develop their own iOS App in the Swift track I lead.
-                        Maintained the organization’s income from development projects despite the pandemic by finalizing agreements with 3 organizations to develop software solutions for their use.
-                        Successfully concluded the transition to the new organization website, increasing traffic by 3x over average levels. Linked the contact form to the organizational email system.
-                    </p>
-                </div>
-            </div>
-            <div class="experience-container">
-                <img src="Images/Rogomi.png" alt="Rogomi Logo">
-                <div>
-                    <h3> iOS Development Intern, Rogomi Inc. </h3>
-                    <p> February - May 2022 </p>
-                    <p>
-                        Fixed multiple bugs in the Objective-C codebase of the WHS Monitor app. Rewrote the API handler to take better advantage of concurrency and to avoid timeouts. 
-                        Refactored ViewControllers to take advantage of new UIKit APIs and reduce memory usage.
-                    </p>
-                </div>
-            </div>
-            <div class="experience-container">
-                <img src="Images/Tayo.jpg" alt="OrSem 2021: Tayo Logo">
-                <div>
-                    <h3> Website Head, OrSem 2021: Tayo </h3>
-                    <p> June - August 2021 </p>
-                    <p>
-                        Was the Project / Project Manager for the website of Tayo, the biggest student event in the Loyola Schools, used by over 10,000 people during OrSem week.
-                        Successfully incorporated multiple proposed features into the final website, including Google Authentication, a Merchandise Shop, a Campus Map, Freshman Section Information, and more.
-                        Collated, organized, and published over 40 posts submitted by different OrSem subcommittees on the website using Django CMS. Utilized Markdown in formatting.
-                        Reduced time needed to insert the freshman data into the SQL database by 98% by writing Python programs that converted the Freshman Data into SQL commands.
-                    </p>
-                </div>
-            </div>
-        </section>
-        <section class="info">
-            <h1> 🎓 Education & Skills </h1>
-            <div id="skills">
-                <div class="skills-row">
-                    <div class="skills-container" id="skills-1">
-                        <h3> Undergraduate </h3>
-                        <p> Ateneo de Manila University </p>
-                        <p> BS Computer Science, Graduating in 2024 </p>
-                        <p> Ateneo Freshman Merit Scholar </p>
-                        <p> Current Grade: 3.93 / 4.00 </p>
-                    </div>
-                    <div class="skills-container" id="skills-2">
-                        <h3> Senior High School </h3>
-                        <p> Ateneo de Manila Senior High School </p>
-                        <p> STEM Strand, Batch 2020 </p>
-                        <p> First Honor Graduate </p>
-                        <p> Final Grade: 3.75 / 4.00 </p>
-                    </div>
-                </div>
-                <div class="skills-row">
-                    <div class="skills-container" id="skills-3">
-                        <h3> Programming & Markup Languages </h3>
-                        <p> Swift, Python, Java, C#, Javascript, Objective-C </p>
-                        <p> HTML, CSS </p>
-                    </div>
-                    <div class="skills-container" id="skills-4">
-                        <h3> Frameworks & More </h3>
-                        <p> SwiftUI, UIKit </p>
-                        <p> Git, Django, Bash </p>
-                        <p> Xcode </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <script type="text/javascript">
-            $(document).ready(function() { 
-                //handle the scaling and movement of the skill containers upon hover
-                $("#skills-1").hover(function() {
-                    $("#skills-2").css('transform', 'translateX(3em)');
-                    $("#skills-3").css('transform', 'translateY(1em)');
-                    $("#skills-4").css('transform', 'translate(3em, 1em)');
-                }, function() { 
-                    $("#skills-2").css('transform', 'translate(0)');
-                    $("#skills-3").css('transform', 'translate(0)');
-                    $("#skills-4").css('transform', 'translate(0)');
-                });
-
-                $("#skills-2").hover(function() { 
-                    $("#skills-1").css('transform', 'translateX(-3em)');
-                    $("#skills-3").css('transform', 'translate(-3em, 1em)');
-                    $("#skills-4").css('transform', 'translateY(1em)');
-                }, function() { 
-                    $("#skills-1").css('transform', 'translate(0)');
-                    $("#skills-3").css('transform', 'translate(0)');
-                    $("#skills-4").css('transform', 'translate(0)');
-                });
-
-                $("#skills-3").hover(function() { 
-                    $("#skills-1").css('transform', 'translateY(-1em)');
-                    $("#skills-2").css('transform', 'translate(3em, -1em)');
-                    $("#skills-4").css('transform', 'translateX(3em)');
-                }, function() { 
-                    $("#skills-1").css('transform', 'translate(0)');
-                    $("#skills-2").css('transform', 'translate(0)');
-                    $("#skills-4").css('transform', 'translate(0)');
-                });
-
-                $("#skills-4").hover(function() { 
-                    $("#skills-1").css('transform', 'translate(-3em, -1em)');
-                    $("#skills-2").css('transform', 'translateY(-1em)');
-                    $("#skills-3").css('transform', 'translateX(-3em');
-                }, function() { 
-                    $("#skills-1").css('transform', 'translate(0)');
-                    $("#skills-2").css('transform', 'translate(0)');
-                    $("#skills-3").css('transform', 'translate(0)');
-                });
-            });
-        </script>
-        <footer>
-            <div>
-                <p style="margin-top: 0;"> Made (with <a href="https://en.wikipedia.org/wiki/Computer_programming" aria-label="Computer Programming Magic" class="hover-underline-animation">Magic</a>) by Franco Velasco. <a href="https://github.com/francodvelasco/francodvelasco.github.io" class="hover-underline-animation" aria-label="Website HTML Repository">See the code on GitHub</a> (or in Inspect Element). </p>
-            </div>
-        </footer>
     </body>
 </html>
